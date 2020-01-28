@@ -1,0 +1,30 @@
+@import 'src/styles-library/fonts-variables.scss';
+@import 'src/styles-library/colors-variables.scss';
+
+div.input-container {
+  display: inline-block;
+  min-width: 300px;
+}
+
+input {
+  font-family: $title-font-secondary;
+  font-weight: 300;
+  font-size: 14px;
+  height: 30px;
+  width: 50%;
+  background: transparent;
+  color: $primary-text-color;
+  appearance: none;
+  border: 0;
+  border: 2px solid rgba($red-primary, 0.5);
+  outline: none;
+  border-radius: 37px;
+  padding: 0 10px;
+  pointer-events: all;
+  transition: border 0.25s ease, width 0.125s ease 0.125s;
+
+  &:focus {
+    border: 2px solid $red-primary;
+    width: 80%;
+  }
+}

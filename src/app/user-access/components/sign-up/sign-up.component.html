@@ -1,0 +1,54 @@
+<ng-container *ngIf="isSubmitted; then notification else signup">
+</ng-container>
+
+<ng-template #signup>
+  <mat-card class="card" align="center">
+    <mat-card-title>Create your BookIT account</mat-card-title>
+    <mat-card-subtitle>to continue to BookIT.</mat-card-subtitle>
+      <mat-card-content>
+          <mat-form-field  appearance="fill" color="accent">
+            <mat-label>First Name</mat-label>
+            <input matInput  />
+          </mat-form-field><br>
+          <mat-form-field appearance="fill" color="accent">
+            <mat-label>Last Name</mat-label>
+            <input matInput type="text"  />
+          </mat-form-field><br>
+        <mat-form-field appearance="fill" color="accent">
+          <mat-label>Email</mat-label>
+          <mat-hint>It will be your login.</mat-hint>
+          <input matInput />
+        </mat-form-field><br>
+        <mat-form-field appearance="fill" color="accent">
+          <mat-label>Phone</mat-label>
+          <input matInput  type="tel" />
+        </mat-form-field><br>
+          <mat-form-field appearance="fill" color="accent">
+            <mat-label>Password</mat-label>
+            <mat-hint>Use 8 or more characters with a mix of letters, numbers, and symbols.</mat-hint>
+            <input matInput/>
+          </mat-form-field><br>
+          <mat-form-field  appearance="fill" color="accent">
+            <mat-label>Confirm</mat-label>
+            <input matInput />
+          </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button  mat-button  mat-raised-button color="warn" (click)="createAccount()"
+          >Submit</button>
+      </mat-card-actions>
+  </mat-card>
+</ng-template>
+
+<ng-template #notification>
+  <mat-card  align="center">
+    <mat-card-title>Account Created</mat-card-title>
+    <mat-card-subtitle>We've send a confirmation link to <br> Cichon@gmail.com </mat-card-subtitle>
+    <mat-card-content>
+      <mat-card-subtitle>You should received an email shortly.</mat-card-subtitle>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-raised-button color="warn" [routerLink]="['/access/signin']" routerLinkActive="active">Log in</button>
+    </mat-card-actions>
+  </mat-card>
+</ng-template>

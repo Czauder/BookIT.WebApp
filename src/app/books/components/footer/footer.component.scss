@@ -1,0 +1,33 @@
+@import "src/styles-library/colors-variables.scss";
+@import "src/styles-library/fonts-variables.scss";
+
+.wrapper {
+  display: flex;
+  align-items: center;
+
+  i {
+    font-size: 2em;
+    color: $trinary-bg-color;
+    margin: 0.5em;
+    cursor: pointer;
+
+    &:hover {
+      color: $red-primary;
+    }
+  }
+
+  span {
+    color: $red-primary;
+    font-family: $title-font-primary;
+    font-size: 0.7em;
+    letter-spacing: 2px;
+    margin-left: 2px;
+    user-select: none;
+  }
+
+  h2 span:hover {
+    color: $primary-text-color;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+}

@@ -1,0 +1,21 @@
+<mat-card class="card" align="center">
+    <mat-card-title>BookIT</mat-card-title>
+    <mat-card-subtitle>Sign in to continue to BookIT.</mat-card-subtitle>
+    <mat-card-content>
+      <mat-form-field appearance="fill" color="accent">
+        <mat-label>Email</mat-label>
+        <input matInput>
+      </mat-form-field><br>
+      <mat-form-field appearance="fill" color="accent">
+      <mat-label>Password</mat-label>
+      <input matInput>
+    </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions align="center">
+      <button mat-flat-button color="accent" [routerLink]="['/forgotpassword']">Forgot Password?</button>
+      <button mat-raised-button color="warn" mat-button [routerLink]="['/signup']"  routerLinkActive="active">Create
+        Account</button>
+      <button mat-button  mat-raised-button color="warn"  [routerLink]="['/books']"
+       >Next</button>
+    </mat-card-actions>
+  </mat-card>

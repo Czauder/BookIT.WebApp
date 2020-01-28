@@ -1,0 +1,53 @@
+@import "src/styles-library/colors-variables.scss" ;
+
+.container {
+  display: grid;
+  min-height: calc(100vh - 4em);
+  width: 100%;
+  margin: 0 auto;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: 0.2fr 250px 0.2fr 250px 0.2fr 250px 0.2fr 0.3fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  grid-template-areas: 
+  ".fbt fbt . . . ."
+  ".fbc fbc fbc fbc fbc ."
+  ". tbt tbt . . . ."
+  ". tbc tbc tbc tbc tbc ."
+  ". nbt . . . . ."
+  ". nbc nbc nbc nbc nbc ."
+  ". . . . . . ."
+  "fot fot fot fot fot fot fot";
+}
+
+.favorite-books-title {
+  grid-area: fbt;
+  justify-self: left;
+}
+
+.favorite-books-cards{
+  grid-area: fbc;
+}
+
+.top-books-title{
+  grid-area: tbt;
+  justify-self: left;
+}
+
+.top-books-cards{
+   grid-area: tbc;
+}
+
+.new-books-title{
+  grid-area: nbt;
+  justify-self: left;
+}
+
+.new-books-cards{
+  grid-area: nbc;
+}
+
+.footer{
+  grid-area: fot;
+  background-color: $secondary-bg-color;
+}
