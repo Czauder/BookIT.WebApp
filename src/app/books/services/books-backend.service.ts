@@ -12,7 +12,7 @@ export class BooksBackendService {
 
   constructor(private http: HttpClient) { }
 
-public getBooks(): Observable<Book[]> {
+  public getBooks(): Observable<Book[]> {
   return this.http.get<Book[]>(this.url + '/api/books');
 }
 }
