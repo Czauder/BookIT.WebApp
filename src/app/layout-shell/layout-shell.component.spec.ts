@@ -8,9 +8,8 @@ describe('LayoutShellComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LayoutShellComponent ]
-    })
-    .compileComponents();
+      declarations: [LayoutShellComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

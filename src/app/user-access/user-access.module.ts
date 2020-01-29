@@ -9,15 +9,14 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
-
-
 @NgModule({
-  declarations: [UserAccessComponent, SignInComponent, SignUpComponent, ForgotPasswordComponent, ResetPasswordComponent],
-  imports: [
-    CommonModule,
-    UserAccessRoutingModule,
-    RouterModule,
-    MaterialModule
-  ]
+  declarations: [
+    UserAccessComponent,
+    SignInComponent,
+    SignUpComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent
+  ],
+  imports: [CommonModule, UserAccessRoutingModule, RouterModule, MaterialModule]
 })
-export class UserAccessModule { }
+export class UserAccessModule {}

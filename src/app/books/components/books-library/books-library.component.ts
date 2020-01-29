@@ -7,23 +7,22 @@ import { Book } from './book-card/book-card.component';
   styleUrls: ['./books-library.component.scss']
 })
 export class BooksLibraryComponent implements OnInit {
-  public books:Book[]= [{
-      title:"JavaScript",
-      spec: "Frontend",
+  public books: Book[] = [
+    {
+      title: 'JavaScript',
+      spec: 'Frontend',
       pages: 200,
-      tags: ["es6","functional programming"]
+      tags: ['es6', 'functional programming']
+    },
+    {
+      title: 'JavaScript',
+      spec: 'Frontend',
+      pages: 200,
+      tags: ['es6', 'functional programming']
+    }
+  ];
 
-  },{
-    title:"JavaScript",
-    spec: "Frontend",
-    pages: 200,
-    tags: ["es6","functional programming"]
+  constructor() {}
 
-}]
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

@@ -8,20 +8,11 @@ import { DialogLogoutComponent } from './layout-shell/components/user-menu/dialo
 import { LayoutShellModule } from './layout-shell/layout-shell.module';
 import { MaterialModule } from './material/material.module';
 
-
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    MaterialModule,
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    LayoutShellModule,
-  ],
+  declarations: [AppComponent],
+  imports: [MaterialModule, BrowserModule, AppRoutingModule, BrowserAnimationsModule, LayoutShellModule],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [DialogLogoutComponent]
 })
-export class AppModule { }
+export class AppModule {}

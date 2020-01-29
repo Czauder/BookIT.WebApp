@@ -10,14 +10,16 @@ import { DialogLogoutComponent } from './components/user-menu/dialog-logout/dial
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
 
-
-
 @NgModule({
-  declarations: [LayoutShellComponent, LogoComponent, MainMenuComponent, UserMenuComponent, NotificationsComponent, DialogLogoutComponent, FooterComponent],
-  imports: [
-    CommonModule,
-    MaterialModule,
-    RouterModule,
-  ]
+  declarations: [
+    LayoutShellComponent,
+    LogoComponent,
+    MainMenuComponent,
+    UserMenuComponent,
+    NotificationsComponent,
+    DialogLogoutComponent,
+    FooterComponent
+  ],
+  imports: [CommonModule, MaterialModule, RouterModule]
 })
-export class LayoutShellModule { }
+export class LayoutShellModule {}

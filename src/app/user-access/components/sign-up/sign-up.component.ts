@@ -8,11 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class SignUpComponent implements OnInit {
   public isSubmitted = false;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 
   public createAccount(): void {
     this.isSubmitted = true;

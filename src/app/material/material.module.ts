@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { NgModule } from '@angular/core';
 import {
   MatButtonModule,
   MatDividerModule,
@@ -11,7 +11,7 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatDialogModule
-} from "@angular/material";
+} from '@angular/material';
 
 const material = [
   MatToolbarModule,

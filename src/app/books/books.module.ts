@@ -7,15 +7,8 @@ import { BooksRoutingModule } from './books-routing.module';
 import { BookCardComponent } from './components/books-library/book-card/book-card.component';
 import { BookDetailsComponent } from './components/book-details/book-details.component';
 
-
-
-
 @NgModule({
   declarations: [BooksComponent, BooksLibraryComponent, BookCardComponent, BookDetailsComponent],
-  imports: [
-    CommonModule,
-    MaterialModule,
-    BooksRoutingModule
-  ]
+  imports: [CommonModule, MaterialModule, BooksRoutingModule]
 })
-export class BooksModule { }
+export class BooksModule {}

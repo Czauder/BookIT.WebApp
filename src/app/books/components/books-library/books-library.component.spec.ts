@@ -8,9 +8,8 @@ describe('BooksLibraryComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BooksLibraryComponent ]
-    })
-    .compileComponents();
+      declarations: [BooksLibraryComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

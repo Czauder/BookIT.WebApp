@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-
 @Component({
   selector: 'app-book-card',
   templateUrl: './book-card.component.html',
@@ -10,15 +9,13 @@ export class BookCardComponent implements OnInit {
   @Input() book: Book;
   @Input() idx: number;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
-export interface Book{
-  title:string,
-  spec:string,
-  pages:number,
-  tags: string []
+export interface Book {
+  title: string;
+  spec: string;
+  pages: number;
+  tags: string[];
 }

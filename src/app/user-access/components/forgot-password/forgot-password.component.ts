@@ -8,11 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class ForgotPasswordComponent implements OnInit {
   public isClickedButton: boolean;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 
   public showNotification(): void {
     this.isClickedButton = true;
