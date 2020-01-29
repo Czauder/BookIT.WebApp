@@ -2,11 +2,11 @@
 
 .container {
   display: grid;
-  min-height: calc(100vh - 4em);
+  min-height: 100%;
   width: 100%;
   margin: 0 auto;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: 0.2fr 250px 0.2fr 250px 0.2fr 250px 0.2fr 0.3fr;
+  grid-template-rows: 0.2fr 250px 0.2fr 250px 0.2fr 250px 0.2fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   grid-template-areas: 
@@ -17,7 +17,6 @@
   ". nbt . . . . ."
   ". nbc nbc nbc nbc nbc ."
   ". . . . . . ."
-  "fot fot fot fot fot fot fot";
 }
 
 .favorite-books-title {
@@ -45,9 +44,4 @@
 
 .new-books-cards{
   grid-area: nbc;
-}
-
-.footer{
-  grid-area: fot;
-  background-color: $secondary-bg-color;
 }

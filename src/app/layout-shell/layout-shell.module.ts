@@ -8,15 +8,16 @@ import { UserMenuComponent } from './components/user-menu/user-menu.component';
 import { NotificationsComponent } from './components/user-menu/notifications/notifications.component';
 import { DialogLogoutComponent } from './components/user-menu/dialog-logout/dialog-logout.component';
 import { RouterModule } from '@angular/router';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
 @NgModule({
-  declarations: [LayoutShellComponent, LogoComponent, MainMenuComponent, UserMenuComponent, NotificationsComponent, DialogLogoutComponent],
+  declarations: [LayoutShellComponent, LogoComponent, MainMenuComponent, UserMenuComponent, NotificationsComponent, DialogLogoutComponent, FooterComponent],
   imports: [
     CommonModule,
     MaterialModule,
-    RouterModule
+    RouterModule,
   ]
 })
 export class LayoutShellModule { }
