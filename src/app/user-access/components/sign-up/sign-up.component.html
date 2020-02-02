@@ -1,72 +1,77 @@
 <ng-container *ngIf="isSubmitted; then notification else signup">
 </ng-container>
-
-<ng-template #signup>
-  <mat-card class="card" align="center">
-    <mat-card-title>Create your BookIT account</mat-card-title>
-    <mat-card-subtitle>to continue to BookIT.</mat-card-subtitle>
-    <form [formGroup]="registerForm" >
-      <mat-card-content>
-        <mat-form-field appearance="fill" color="accent">
-          <mat-label>First Name</mat-label>
-          <input matInput formControlName="firstName" />
-          <mat-error *ngIf="registerForm.get('firstName').invalid &&
+<div class="wrapper">
+  <ng-template #signup>
+    <mat-card class="card" align="center">
+      <mat-card-title>Create your BookIT account</mat-card-title>
+      <mat-card-subtitle>to continue to BookIT.</mat-card-subtitle>
+      <form [formGroup]="registerForm">
+        <mat-card-content>
+          <mat-form-field appearance="fill" color="accent">
+            <mat-label>First Name</mat-label>
+            <input matInput formControlName="firstName" />
+            <mat-error *ngIf="registerForm.get('firstName').invalid &&
           registerForm.get('firstName').dirty">
-          Minimum two characters.
-        </mat-error>
-        </mat-form-field><br>
-        <mat-form-field appearance="fill" color="accent">
-          <mat-label>Last Name</mat-label>
-          <input matInput type="text" formControlName="lastName"  />
-          <mat-error *ngIf="registerForm.get('lastName').invalid &&
+              Minimum two characters.
+            </mat-error>
+          </mat-form-field><br>
+          <mat-form-field appearance="fill" color="accent">
+            <mat-label>Last Name</mat-label>
+            <input matInput type="text" formControlName="lastName" />
+            <mat-error *ngIf="registerForm.get('lastName').invalid &&
           registerForm.get('lastName').dirty">
-          Minimum two characters.
-        </mat-error>
-        </mat-form-field><br>
-        <mat-form-field appearance="fill" color="accent">
-          <mat-label>Email</mat-label>
-          <mat-hint>It will be your login.</mat-hint>
-          <input matInput type="email" formControlName="email" />
-          <mat-error *ngIf="registerForm.get('email').invalid &&
+              Minimum two characters.
+            </mat-error>
+          </mat-form-field><br>
+          <mat-form-field appearance="fill" color="accent">
+            <mat-label>Email</mat-label>
+            <mat-hint>It will be your login.</mat-hint>
+            <input matInput type="email" formControlName="email" />
+            <mat-error *ngIf="registerForm.get('email').invalid &&
           registerForm.get('email').dirty">
-          Invalid email address.
-        </mat-error>
-        </mat-form-field><br>
-        <mat-form-field appearance="fill" color="accent">
-          <mat-label>Phone</mat-label>
-          <input matInput type="tel" formControlName="phone" />
-          <mat-error *ngIf="registerForm.get('phone').invalid &&
+              Invalid email address.
+            </mat-error>
+          </mat-form-field><br>
+          <mat-form-field appearance="fill" color="accent">
+            <mat-label>Phone</mat-label>
+            <input matInput type="tel" formControlName="phone" />
+            <mat-error *ngIf="registerForm.get('phone').invalid &&
           registerForm.get('phone').dirty">
-          Invalid phone number.
-        </mat-error>
-        </mat-form-field><br>
-        <mat-form-field appearance="fill" color="accent">
-          <mat-label>Password</mat-label>
-          <input matInput formControlName="password"  matInput [type]="showPwd ? 'text' : 'password'" />
-          <mat-icon matSuffix class="eye-icon" (click)="showPassword()">{{showPwd ? 'visibility' : 'visibility_off'}}</mat-icon>
-          <mat-hint>Use 5 or more characters with a mix of letters, numbers, and symbols.</mat-hint>
-          <mat-error *ngIf="registerForm.get('password').invalid &&
+              Invalid phone number.
+            </mat-error>
+          </mat-form-field><br>
+          <mat-form-field appearance="fill" color="accent">
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password" matInput [type]="showPwd ? 'text' : 'password'" />
+            <mat-icon matSuffix class="eye-icon" (click)="showPassword()">{{showPwd ? 'visibility' : 'visibility_off'}}
+            </mat-icon>
+            <mat-hint>Use 5 or more characters with a mix of letters, numbers, and symbols.</mat-hint>
+            <mat-error *ngIf="registerForm.get('password').invalid &&
               registerForm.get('password').dirty">
               Password must contain a letter, a numeric character, and a special character.
             </mat-error>
-        </mat-form-field><br>
-        <mat-form-field appearance="fill" color="accent">
-          <mat-label>Confirm</mat-label>
-          <input matInput  matInput [type]="showConfirm ? 'text' : 'password'" formControlName="confirm" />
-          <mat-icon matSuffix class="eye-icon" (click)="showConfirmPassword()">{{showConfirm ? 'visibility' : 'visibility_off'}}</mat-icon>
-          <mat-error *ngIf="registerForm.get('confirm').invalid &&
+          </mat-form-field><br>
+          <mat-form-field appearance="fill" color="accent">
+            <mat-label>Confirm</mat-label>
+            <input matInput matInput [type]="showConfirm ? 'text' : 'password'" formControlName="confirm" />
+            <mat-icon matSuffix class="eye-icon" (click)="showConfirmPassword()">
+              {{showConfirm ? 'visibility' : 'visibility_off'}}</mat-icon>
+            <mat-error *ngIf="registerForm.get('confirm').invalid &&
           registerForm.get('confirm').dirty">
               Confirmation does not match password.
             </mat-error>
-        </mat-form-field>
-      </mat-card-content>
-      <mat-card-actions align="end">
-        <button mat-flat-button color="accent"[routerLink]="['/access/signin']" routerLinkActive="active">Back</button>
-        <button mat-button mat-raised-button color="warn" (click)="createAccount()" [disabled]='!registerForm.valid'>Submit</button>
-      </mat-card-actions>
-    </form>
-  </mat-card>
-</ng-template>
+          </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions align="end">
+          <button mat-flat-button color="accent" [routerLink]="['/access/signin']"
+            routerLinkActive="active">Back</button>
+          <button mat-button mat-raised-button color="warn" (click)="createAccount()"
+            [disabled]='!registerForm.valid'>Submit</button>
+        </mat-card-actions>
+      </form>
+    </mat-card>
+  </ng-template>
+</div>
 
 <ng-template #notification>
   <mat-card align="center">

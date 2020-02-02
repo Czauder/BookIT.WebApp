@@ -11,6 +11,10 @@
   background: rgb(0, 0, 1);
   background: linear-gradient(90deg, rgba(0, 0, 1, 1) 31%, rgba(229, 9, 20, 1) 100%);
 
+  @media (max-width: 800px) {
+    height: 135%;
+    }
+
   div.logo {
     position: absolute;
     left: 0;
@@ -32,10 +36,24 @@
       letter-spacing: 2px;
       user-select: none;
     }
+
+    @media (max-width: 800px) {
+      span {
+        font-size: 4em;
+      }
+
+      span.it {
+        font-size: 0.4em;
+      }
+    }
   }
 
   .login-panel {
     min-width: 25%;
+
+    @media (max-width: 800px) {
+      width: 80%;
+    }
   }
 }
 

@@ -1,7 +1,13 @@
 mat-form-field {
   width: 100%;
-  padding-bottom: 0.5em
+  padding-bottom: 0.5em;
 }
 mat-icon {
   cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  button {
+   margin: 0.5em
+  }
 }
