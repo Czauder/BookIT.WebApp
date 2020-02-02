@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-forgot-password',
@@ -7,6 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForgotPasswordComponent implements OnInit {
   public isClickedButton: boolean;
+  public emailFormControl = new FormControl('', [
+    Validators.required,
+    Validators.email
+  ]);
 
   constructor() {}
 
