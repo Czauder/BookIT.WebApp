@@ -1,16 +1,14 @@
-import { TestBed } from '@angular/core/testing';
-
+import { createHttpFactory, HttpMethod, SpectatorHTTP } from '@ngneat/spectator';
 import { BooksBackendService } from './books-backend.service';
 
-describe('BooksBackendService', () => {
-  let service: BooksBackendService;
+describe('HttpClient testing', () => {
+  let spectator: SpectatorHTTP<BooksBackendService>;
+  const createHttp = createHttpFactory(BooksBackendService);
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(BooksBackendService);
-  });
+  beforeEach(() => (spectator = createHttp()));
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
+  it('GET all books', () => {
+    spectator.service.getBooks().subscribe();
+    spectator.expectOne('http://localhost:5050/api/books', HttpMethod.GET)
   });
 });
