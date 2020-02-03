@@ -1,6 +1,7 @@
-import { createHostFactory, SpectatorHost } from '@ngneat/spectator';
+import { createHostFactory, SpectatorHost, mockProvider } from '@ngneat/spectator';
 
 import { BooksLibraryComponent } from './books-library.component';
+import { BooksBackendService } from '../../services/books-backend.service';
 
 
 describe('BooksLibraryComponent', () => {
@@ -10,7 +11,7 @@ describe('BooksLibraryComponent', () => {
     component: BooksLibraryComponent,
     declarations: [],
     imports: [],
-    providers: []
+    providers: [mockProvider(BooksBackendService)]
   });
 
   beforeEach(() => {

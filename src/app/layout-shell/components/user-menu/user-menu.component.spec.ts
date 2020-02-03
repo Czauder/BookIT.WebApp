@@ -1,6 +1,8 @@
 import { createHostFactory, SpectatorHost } from '@ngneat/spectator';
 
 import { UserMenuComponent } from './user-menu.component';
+import { MaterialModule } from 'src/app/material/material.module';
+import { MatDialog } from '@angular/material';
 
 
 describe('UserMenuComponent', () => {
@@ -9,8 +11,8 @@ describe('UserMenuComponent', () => {
     detectChanges: false,
     component: UserMenuComponent,
     declarations: [],
-    imports: [],
-    providers: []
+    imports: [MaterialModule],
+    providers: [MatDialog]
   });
 
   beforeEach(() => {
