@@ -1,10 +1,10 @@
-import { createHostComponentFactory, SpectatorWithHost } from '@ngneat/spectator';
+import { createHostComponentFactory, SpectatorWithHost, SpectatorHost, createHostFactory } from '@ngneat/spectator';
 
 import { LayoutShellComponent } from './layout-shell.component';
 
 describe('LayoutShellComponent', () => {
-  let spectator: SpectatorWithHost<LayoutShellComponent>;
-  const createComponent = createHostComponentFactory({
+  let spectator: SpectatorHost<LayoutShellComponent>;
+  const createComponent = createHostFactory({
     detectChanges: false,
     component: LayoutShellComponent,
     declarations: [],

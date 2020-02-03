@@ -1,9 +1,10 @@
-import { SpectatorWithHost, createHostComponentFactory } from '@ngneat/spectator';
+import { createHostFactory, SpectatorHost } from '@ngneat/spectator';
+
 import { FooterComponent } from './footer.component';
 
 describe('FooterComponent', () => {
-  let spectator: SpectatorWithHost<FooterComponent>;
-  const createComponent = createHostComponentFactory({
+  let spectator: SpectatorHost<FooterComponent>;
+  const createComponent = createHostFactory({
     detectChanges: false,
     component: FooterComponent,
     declarations: [],

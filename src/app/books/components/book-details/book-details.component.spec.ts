@@ -1,7 +1,7 @@
 import { SpectatorWithHost, createHostComponentFactory } from '@ngneat/spectator';
 import { BookDetailsComponent } from './book-details.component';
 
-fdescribe('BookDetailsComponent', () => {
+describe('BookDetailsComponent', () => {
   let spectator: SpectatorWithHost<BookDetailsComponent>;
   const createComponent = createHostComponentFactory({
     detectChanges: false,

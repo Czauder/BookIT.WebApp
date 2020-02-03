@@ -1,9 +1,10 @@
-import { SpectatorWithHost, createHostComponentFactory } from '@ngneat/spectator';
+import { createHostFactory, SpectatorHost } from '@ngneat/spectator';
+
 import { UserAccessComponent } from './user-access.component';
 
-fdescribe('UserAccessComponent', () => {
-  let spectator: SpectatorWithHost<UserAccessComponent>;
-  const createComponent = createHostComponentFactory({
+describe('UserAccessComponent', () => {
+  let spectator: SpectatorHost<UserAccessComponent>;
+  const createComponent = createHostFactory({
     detectChanges: false,
     component: UserAccessComponent,
     declarations: [],

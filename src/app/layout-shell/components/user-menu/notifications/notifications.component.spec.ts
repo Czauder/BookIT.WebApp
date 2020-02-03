@@ -1,9 +1,10 @@
-import { SpectatorWithHost, createHostComponentFactory } from '@ngneat/spectator';
+import { createHostFactory, SpectatorHost } from '@ngneat/spectator';
+
 import { NotificationsComponent } from './notifications.component';
 
 describe('NotificationsComponent', () => {
-  let spectator: SpectatorWithHost<NotificationsComponent>;
-  const createComponent = createHostComponentFactory({
+  let spectator: SpectatorHost<NotificationsComponent>;
+  const createComponent = createHostFactory({
     detectChanges: false,
     component: NotificationsComponent,
     declarations: [],

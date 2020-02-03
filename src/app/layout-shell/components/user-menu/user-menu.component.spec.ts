@@ -1,10 +1,11 @@
-import { SpectatorWithHost, createHostComponentFactory } from '@ngneat/spectator';
+import { createHostFactory, SpectatorHost } from '@ngneat/spectator';
+
 import { UserMenuComponent } from './user-menu.component';
 
 
 describe('UserMenuComponent', () => {
-  let spectator: SpectatorWithHost<UserMenuComponent>;
-  const createComponent = createHostComponentFactory({
+  let spectator: SpectatorHost<UserMenuComponent>;
+  const createComponent = createHostFactory({
     detectChanges: false,
     component: UserMenuComponent,
     declarations: [],

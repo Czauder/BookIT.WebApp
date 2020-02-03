@@ -1,9 +1,10 @@
-import { SpectatorWithHost, createHostComponentFactory } from '@ngneat/spectator';
+import { createHostFactory, SpectatorHost } from '@ngneat/spectator';
+
 import { MainMenuComponent } from './main-menu.component';
 
 describe('MainMenuComponent', () => {
-  let spectator: SpectatorWithHost<MainMenuComponent>;
-  const createComponent = createHostComponentFactory({
+  let spectator: SpectatorHost<MainMenuComponent>;
+  const createComponent = createHostFactory({
     detectChanges: false,
     component: MainMenuComponent,
     declarations: [],

@@ -1,15 +1,12 @@
 import { RouterOutlet } from '@angular/router';
-import {
-  createHostComponentFactory,
-  SpectatorWithHost
-} from '@ngneat/spectator';
+import { createHostFactory, SpectatorHost } from '@ngneat/spectator';
 import { MockComponent } from 'ng-mocks';
 
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  let spectator: SpectatorWithHost<AppComponent>;
-  const createComponent = createHostComponentFactory({
+  let spectator: SpectatorHost<AppComponent>;
+  const createComponent = createHostFactory({
     detectChanges: false,
     component: AppComponent,
     declarations: [MockComponent(RouterOutlet)]

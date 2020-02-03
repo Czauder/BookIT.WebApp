@@ -1,9 +1,10 @@
-import { SpectatorWithHost, createHostComponentFactory } from '@ngneat/spectator';
+import { createHostFactory, SpectatorHost } from '@ngneat/spectator';
+
 import { LogoComponent } from './logo.component';
 
 describe('LogoComponent', () => {
-  let spectator: SpectatorWithHost<LogoComponent>;
-  const createComponent = createHostComponentFactory({
+  let spectator: SpectatorHost<LogoComponent>;
+  const createComponent = createHostFactory({
     detectChanges: false,
     component: LogoComponent,
     declarations: [],

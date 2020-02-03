@@ -1,10 +1,10 @@
-import { createHostComponentFactory, SpectatorWithHost } from '@ngneat/spectator';
+import { createHostFactory, SpectatorHost } from '@ngneat/spectator';
 
 import { ResetPasswordComponent } from './reset-password.component';
 
 describe('ResetPasswordComponent', () => {
-  let spectator: SpectatorWithHost<ResetPasswordComponent>;
-  const createComponent = createHostComponentFactory({
+  let spectator: SpectatorHost<ResetPasswordComponent>;
+  const createComponent = createHostFactory({
     detectChanges: false,
     component: ResetPasswordComponent,
     declarations: [],
