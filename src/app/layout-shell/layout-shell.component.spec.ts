@@ -1,24 +1,24 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { createHostComponentFactory, SpectatorWithHost } from '@ngneat/spectator';
 
 import { LayoutShellComponent } from './layout-shell.component';
 
 describe('LayoutShellComponent', () => {
-  let component: LayoutShellComponent;
-  let fixture: ComponentFixture<LayoutShellComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [LayoutShellComponent]
-    }).compileComponents();
-  }));
+  let spectator: SpectatorWithHost<LayoutShellComponent>;
+  const createComponent = createHostComponentFactory({
+    detectChanges: false,
+    component: LayoutShellComponent,
+    declarations: [],
+    imports: [],
+    providers: []
+  });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LayoutShellComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    spectator = createComponent<LayoutShellComponent>('<app-layout-shell></app-layout-shell>')
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(spectator.component).toBeDefined();
   });
 });
+
+

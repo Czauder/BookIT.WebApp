@@ -61,7 +61,7 @@ export class SignUpComponent implements OnInit {
   }
 
   public showPassword(): void {
-    this.showPwd = !this.showPwd;  
+    this.showPwd = !this.showPwd;
   }
 
   public showConfirmPassword(): void {
@@ -69,8 +69,10 @@ export class SignUpComponent implements OnInit {
   }
 
   public isPositive(): boolean {
-    return this.registerForm.get('confirm').valid && 
-    this.registerForm.get('confirm').dirty && 
-    this.registerForm.get('pass').value === this.registerForm.get('confirm').value
+    return (
+      this.registerForm.get('confirm').valid &&
+      this.registerForm.get('confirm').dirty &&
+      this.registerForm.get('pass').value === this.registerForm.get('confirm').value
+    );
   }
 }

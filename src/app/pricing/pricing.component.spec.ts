@@ -1,24 +1,21 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { SpectatorWithHost, createHostComponentFactory } from '@ngneat/spectator';
 import { PricingComponent } from './pricing.component';
 
 describe('PricingComponent', () => {
-  let component: PricingComponent;
-  let fixture: ComponentFixture<PricingComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [PricingComponent]
-    }).compileComponents();
-  }));
+  let spectator: SpectatorWithHost<PricingComponent>;
+  const createComponent = createHostComponentFactory({
+    detectChanges: false,
+    component: PricingComponent,
+    declarations: [],
+    imports: [],
+    providers: []
+  });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PricingComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    spectator = createComponent<PricingComponent>(`<app-pricing></app-pricing>`);
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(spectator.component).toBeDefined();
   });
 });

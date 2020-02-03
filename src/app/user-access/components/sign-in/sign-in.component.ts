@@ -24,7 +24,7 @@ export class SignInComponent implements OnInit {
 
     const passwordValidator = validationBuilder
       .setPassword()
-      .setMinLength(8)
+      .setMinLength(5)
       .setRequired()
       .build();
 

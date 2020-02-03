@@ -1,24 +1,21 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { SpectatorWithHost, createHostComponentFactory } from '@ngneat/spectator';
 import { LogoComponent } from './logo.component';
 
 describe('LogoComponent', () => {
-  let component: LogoComponent;
-  let fixture: ComponentFixture<LogoComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [LogoComponent]
-    }).compileComponents();
-  }));
+  let spectator: SpectatorWithHost<LogoComponent>;
+  const createComponent = createHostComponentFactory({
+    detectChanges: false,
+    component: LogoComponent,
+    declarations: [],
+    imports: [],
+    providers: []
+  });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LogoComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    spectator = createComponent<LogoComponent>(`<app-logo></app-logo>`);
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(spectator.component).toBeDefined();
   });
 });

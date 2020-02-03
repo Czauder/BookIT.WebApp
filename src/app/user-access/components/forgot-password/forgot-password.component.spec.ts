@@ -1,24 +1,21 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { SpectatorWithHost, createHostComponentFactory } from '@ngneat/spectator';
 import { ForgotPasswordComponent } from './forgot-password.component';
 
 describe('ForgotPasswordComponent', () => {
-  let component: ForgotPasswordComponent;
-  let fixture: ComponentFixture<ForgotPasswordComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ForgotPasswordComponent]
-    }).compileComponents();
-  }));
+  let spectator: SpectatorWithHost<ForgotPasswordComponent>;
+  const createComponent = createHostComponentFactory({
+    detectChanges: false,
+    component: ForgotPasswordComponent,
+    declarations: [],
+    imports: [],
+    providers: []
+  });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ForgotPasswordComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    spectator = createComponent<ForgotPasswordComponent>(`<app-forgot-password></app-forgot-password>`);
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(spectator.component).toBeDefined();
   });
 });

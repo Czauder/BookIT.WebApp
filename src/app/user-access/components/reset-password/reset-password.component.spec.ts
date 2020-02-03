@@ -1,24 +1,22 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { createHostComponentFactory, SpectatorWithHost } from '@ngneat/spectator';
 
 import { ResetPasswordComponent } from './reset-password.component';
 
 describe('ResetPasswordComponent', () => {
-  let component: ResetPasswordComponent;
-  let fixture: ComponentFixture<ResetPasswordComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ResetPasswordComponent]
-    }).compileComponents();
-  }));
+  let spectator: SpectatorWithHost<ResetPasswordComponent>;
+  const createComponent = createHostComponentFactory({
+    detectChanges: false,
+    component: ResetPasswordComponent,
+    declarations: [],
+    imports: [],
+    providers: []
+  });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ResetPasswordComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    spectator = createComponent<ResetPasswordComponent>(`<app-reset-password></app-reset-password>`);
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(spectator.component).toBeDefined();
   });
 });

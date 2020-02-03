@@ -1,24 +1,21 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { SpectatorWithHost, createHostComponentFactory } from '@ngneat/spectator';
 import { MainMenuComponent } from './main-menu.component';
 
 describe('MainMenuComponent', () => {
-  let component: MainMenuComponent;
-  let fixture: ComponentFixture<MainMenuComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [MainMenuComponent]
-    }).compileComponents();
-  }));
+  let spectator: SpectatorWithHost<MainMenuComponent>;
+  const createComponent = createHostComponentFactory({
+    detectChanges: false,
+    component: MainMenuComponent,
+    declarations: [],
+    imports: [],
+    providers: []
+  });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MainMenuComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    spectator = createComponent<MainMenuComponent>(`<app-main-menu></app-main-menu>`);
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(spectator.component).toBeDefined();
   });
 });

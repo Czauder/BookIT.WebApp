@@ -1,24 +1,21 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { SpectatorWithHost, createHostComponentFactory } from '@ngneat/spectator';
 import { UserAccessComponent } from './user-access.component';
 
-describe('UserAccessComponent', () => {
-  let component: UserAccessComponent;
-  let fixture: ComponentFixture<UserAccessComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [UserAccessComponent]
-    }).compileComponents();
-  }));
+fdescribe('UserAccessComponent', () => {
+  let spectator: SpectatorWithHost<UserAccessComponent>;
+  const createComponent = createHostComponentFactory({
+    detectChanges: false,
+    component: UserAccessComponent,
+    declarations: [],
+    imports: [],
+    providers: []
+  });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UserAccessComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    spectator = createComponent<UserAccessComponent>(`<app-user-access></app-user-access>`);
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(spectator.component).toBeDefined();
   });
 });

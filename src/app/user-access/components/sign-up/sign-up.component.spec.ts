@@ -1,24 +1,21 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { SpectatorWithHost, createHostComponentFactory } from '@ngneat/spectator';
 import { SignUpComponent } from './sign-up.component';
 
-describe('SignUpComponent', () => {
-  let component: SignUpComponent;
-  let fixture: ComponentFixture<SignUpComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [SignUpComponent]
-    }).compileComponents();
-  }));
+fdescribe('SignUpComponent', () => {
+  let spectator: SpectatorWithHost<SignUpComponent>;
+  const createComponent = createHostComponentFactory({
+    detectChanges: false,
+    component: SignUpComponent,
+    declarations: [],
+    imports: [],
+    providers: []
+  });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SignUpComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    spectator = createComponent<SignUpComponent>(`<app-sign-up></app-sign-up>`);
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(spectator.component).toBeDefined();
   });
 });
