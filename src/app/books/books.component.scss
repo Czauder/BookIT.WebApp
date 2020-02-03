@@ -1,47 +1,107 @@
-@import "src/styles-library/colors-variables.scss" ;
+@import 'src/styles-library/colors-variables.scss';
 
 .container {
-  display: grid;
-  min-height: 100%;
-  width: 100%;
+  height: 100%;
+  width: 80%;
   margin: 0 auto;
-  grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: 0.2fr 250px 0.2fr 250px 0.2fr 250px 0.2fr;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 0.2fr 1fr 0.2fr 1fr 0.2fr 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  grid-template-areas: 
-  ".fbt fbt . . . ."
-  ".fbc fbc fbc fbc fbc ."
-  ". tbt tbt . . . ."
-  ". tbc tbc tbc tbc tbc ."
-  ". nbt . . . . ."
-  ". nbc nbc nbc nbc nbc ."
-  ". . . . . . ."
+  grid-template-areas:
+    'title1 title1 . . .'
+    'content1 content1 content1 content1 content1'
+    'title2 title2 . . .'
+    'content2 content2 content2 content2 content2'
+    'title3 title3 . . .'
+    'content3 content3 content3 content3 content3';
 }
 
-.favorite-books-title {
-  grid-area: fbt;
+@media (max-width: 1024px) {
+  .container {
+    min-height: 500%;
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 0.1fr 1fr 1fr 1fr 0.1fr 1fr 1fr 1fr 0.1fr 1fr 1fr 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    grid-template-areas:
+      'title1 title1'
+      'content1 content1'
+      'content1 content1'
+      'content1 content1'
+      'title2 title2'
+      'content2 content2'
+      'content2 content2'
+      'content2 content2'
+      'title3 title3'
+      'content3 content3'
+      'content3 content3'
+      'content3 content3';
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    height: 800%;
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr 1fr 1fr 1fr 1fr 1fr 0.2fr 1fr 1fr 1fr 1fr 1fr 0.2fr 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    grid-template-areas:
+      'title1'
+      'content1'
+      'content1'
+      'content1'
+      'content1'
+      'content1'
+      'title2'
+      'content2'
+      'content2'
+      'content2'
+      'content2'
+      'content2'
+      'title3'
+      'content3'
+      'content3'
+      'content3'
+      'content3'
+      'content3';
+  }
+}
+
+.title1 {
+  grid-area: title1;
   justify-self: left;
+  margin: auto 0;
 }
 
-.favorite-books-cards{
-  grid-area: fbc;
+.content1 {
+  grid-area: content1;
 }
 
-.top-books-title{
-  grid-area: tbt;
+.title2 {
+  grid-area: title2;
   justify-self: left;
+  margin: auto 0;
 }
 
-.top-books-cards{
-   grid-area: tbc;
+.content2 {
+  grid-area: content2;
 }
 
-.new-books-title{
-  grid-area: nbt;
+.title3 {
+  grid-area: title3;
   justify-self: left;
+  margin: auto 0;
 }
 
-.new-books-cards{
-  grid-area: nbc;
+.content3 {
+  grid-area: content3;
 }
