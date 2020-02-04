@@ -1,3 +1,9 @@
 .wrapper {
     display: flex;
 }
+
+@media (max-width: 965px) {
+    .wrapper {
+      display: none;
+    }
+  }

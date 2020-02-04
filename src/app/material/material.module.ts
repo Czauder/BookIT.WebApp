@@ -10,7 +10,7 @@ import {
   MatMenuModule,
   MatFormFieldModule,
   MatInputModule,
-  MatDialogModule
+  MatDialogModule,
 } from '@angular/material';
 
 const material = [
