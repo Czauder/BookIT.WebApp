@@ -101,7 +101,7 @@ h1 {
         outline: none;
         background-color: $red-primary;
         border-radius: 80px;
-        color: #fff;
+        color: $primary-text-color;
         font-size: 17px;
         margin-top: -15px;
         padding: 15px;
@@ -131,7 +131,7 @@ h1 {
     padding: 10px 0;
     background-color: $red-primary;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
-    color: #fff;
+    color: $primary-text-color;
     font-size: 13px;
     text-transform: uppercase;
     text-align: center;
@@ -221,7 +221,7 @@ h1 {
     &:hover {
       background-color: $red-primary;
       box-shadow: 0 2px 4px darken($red-primary, 20);
-      color: #fff;
+      color: $primary-text-color;
       font-size: 17px;
     }
   }

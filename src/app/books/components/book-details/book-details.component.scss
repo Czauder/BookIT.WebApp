@@ -6,8 +6,7 @@
   display: grid;
   min-height: 95%;
   width: 100%;
-  background: rgb(0, 0, 1);
-  background: linear-gradient(170deg, rgba(0, 0, 1, 1) 46%, rgba(229, 9, 20, 1) 100%);
+  background: $secondary-gradient;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr 2fr 0.7fr 0.3fr;
   grid-column-gap: 0px;
@@ -73,7 +72,7 @@
             margin: 0 0 0 0.3vw;
             font-size: 0.8 xvw;
             text-shadow: 0 1px 1px rgba(0, 0, 0, 0);
-            color: gray;
+            color: $separator-color;
           }
           &:last-child:after {
             display: none;

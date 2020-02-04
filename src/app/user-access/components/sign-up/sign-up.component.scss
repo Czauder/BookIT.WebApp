@@ -1,8 +1,8 @@
+@import 'src/styles-library/mixins.scss';
 
 mat-form-field {
-  width: 100%;
-  padding-bottom: 0.5em;
-}
+  @include mat-form-field-style;
+  }
 
 mat-icon {
   cursor: pointer;

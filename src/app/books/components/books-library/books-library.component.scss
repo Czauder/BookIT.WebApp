@@ -212,7 +212,7 @@
           margin: 0 0 0 0.3vw;
           font-size: 0.8 xvw;
           text-shadow: 0 1px 1px rgba(0, 0, 0, 0);
-          color: gray
+          color: $separator-color;
         }
         &:last-child:after {
           display: none;

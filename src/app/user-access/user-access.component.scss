@@ -8,10 +8,9 @@
   height: 100%;
   width: 100%;
   overflow: hidden;
-  background: rgb(0, 0, 1);
-  background: linear-gradient(90deg, rgba(0, 0, 1, 1) 31%, rgba(229, 9, 20, 1) 100%);
+  background: $primary-gradient;
 
-  @media (max-width: 800px) {
+  @media (max-width: 1024px) {
     height: 135%;
     }
 
@@ -24,7 +23,7 @@
     span {
       font-size: 8em;
       user-select: none;
-      color: white;
+      color: $primary-text-color;
     }
 
     span.it {
@@ -37,7 +36,7 @@
       user-select: none;
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: 1024px) {
       span {
         font-size: 4em;
       }
@@ -51,7 +50,7 @@
   .login-panel {
     min-width: 25%;
 
-    @media (max-width: 800px) {
+    @media (max-width: 1024px) {
       width: 80%;
     }
   }
