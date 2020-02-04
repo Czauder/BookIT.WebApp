@@ -50,7 +50,6 @@
 .book3,
 .book4,
 .book5 {
-  background-color: red;
   position: relative;
   cursor: pointer;
   border-radius: 5px;
@@ -70,7 +69,6 @@
   .book3,
   .book4,
   .book5 {
-    background-color: greenyellow;
     margin: 1em;
     position: relative;
     cursor: pointer;
@@ -91,7 +89,6 @@
     .book3,
     .book4,
     .book5 {
-      background-color: rgb(77, 1, 1);
       position: relative;
       cursor: pointer;
       border-radius: 5px;
@@ -128,13 +125,11 @@
   display: inline-block;
   height: auto;
   overflow: hidden;
-  // cursor: pointer;
   .img {
     display: block;
     position: relative;
     width: 100%;
     height: 100%;
-    // padding-top: 56.25%;
     background-size: cover;
     transform-origin: top right;
     &:after {
