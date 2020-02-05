@@ -5,7 +5,7 @@
     <mat-card class="card" align="center">
       <mat-card-title>Create your BookIT account</mat-card-title>
       <mat-card-subtitle>to continue to BookIT.</mat-card-subtitle>
-      <form [formGroup]="registerForm">
+      <form [formGroup]="registerForm" (ngSubmit)="submitForm()">
         <mat-card-content>
           <mat-form-field appearance="fill" color="accent">
             <mat-label>First Name</mat-label>
@@ -65,7 +65,7 @@
         <mat-card-actions align="end">
           <button mat-flat-button color="accent" [routerLink]="['/access/signin']"
             routerLinkActive="active">Back</button>
-          <button mat-button mat-raised-button color="warn" (click)="createAccount()"
+          <button mat-button mat-raised-button color="warn"
             [disabled]='!registerForm.valid'>Submit</button>
         </mat-card-actions>
       </form>

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { ValidatorsBuilder } from '../../validators/validators-builder';
+import { AuthService } from '../../service/auth.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-sign-up',
@@ -14,7 +16,7 @@ export class SignUpComponent implements OnInit {
   public showConfirm = false;
   public registerForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private authService: AuthService) {}
 
   public ngOnInit(): void {
     const validationBuilder = new ValidatorsBuilder();
@@ -51,13 +53,6 @@ export class SignUpComponent implements OnInit {
       password: new FormControl(null, Validators.compose(passwordValidator)),
       confirm: new FormControl(null, Validators.compose(passwordValidator))
     });
-
-    console.log(this.registerForm);
-  }
-
-  public createAccount(): void {
-    this.isSubmitted = true;
-    console.log(this.isSubmitted);
   }
 
   public showPassword(): void {
@@ -74,5 +69,16 @@ export class SignUpComponent implements OnInit {
       this.registerForm.get('confirm').dirty &&
       this.registerForm.get('pass').value === this.registerForm.get('confirm').value
     );
+  }
+
+  public submitForm(): void {
+    if (this.registerForm.valid) {
+      this.authService.registerCustomer(this.registerForm.value).subscribe(response => {
+        console.log(response);
+        localStorage.setItem('UserID', response);
+      },
+     );
+    }
+    this.isSubmitted = true;
   }
 }
