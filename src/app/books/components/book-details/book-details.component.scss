@@ -41,7 +41,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 0.3fr repeat(2, 0.2fr) 1fr;
-    margin: auto 0;
+    margin: auto 1.5em;
     grid-template-areas:
       'title title'
       'tags tags'

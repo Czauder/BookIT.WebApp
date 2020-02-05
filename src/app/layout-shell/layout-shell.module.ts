@@ -9,7 +9,6 @@ import { NotificationsComponent } from './components/user-menu/notifications/not
 import { DialogLogoutComponent } from './components/user-menu/dialog-logout/dialog-logout.component';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
-import { GlobalNavComponent } from './components/global-nav/global-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -25,9 +24,18 @@ import { MatListModule } from '@angular/material/list';
     UserMenuComponent,
     NotificationsComponent,
     DialogLogoutComponent,
-    FooterComponent,
-    GlobalNavComponent
+    FooterComponent
   ],
-  imports: [CommonModule, MaterialModule, RouterModule, LayoutModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule]
+  imports: [
+    CommonModule,
+    MaterialModule,
+    RouterModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
+  ]
 })
 export class LayoutShellModule {}
