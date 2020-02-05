@@ -16,6 +16,7 @@ export class SignUpComponent implements OnInit {
   public showConfirm = false;
   public registerForm: FormGroup;
 
+
   constructor(private formBuilder: FormBuilder, private authService: AuthService) {}
 
   public ngOnInit(): void {
