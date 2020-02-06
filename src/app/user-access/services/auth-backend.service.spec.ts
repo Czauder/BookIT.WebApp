@@ -1,16 +1,16 @@
-import { TestBed } from '@angular/core/testing';
+import { createHttpFactory, SpectatorHttp, HttpMethod } from '@ngneat/spectator';
+
 import { AuthBackendService } from './auth-backend.service';
 
+describe('AuthBackend service testing', () => {
+  let spectator: SpectatorHttp<AuthBackendService>;
+  const createHttp = createHttpFactory(AuthBackendService);
 
-describe('AuthBackendService', () => {
-  let service: AuthBackendService;
+  beforeEach(() => (spectator = createHttp()));
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(AuthBackendService);
-  });
+  it('should registered customer', () => {
+    spectator.service.registerCustomer({data: 'testMessage'}).subscribe();
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
+    const req = spectator.expectOne('http://localhost:5050/api/auth', HttpMethod.POST);
   });
 });

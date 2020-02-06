@@ -1,16 +1,17 @@
-import { TestBed } from '@angular/core/testing';
+import { createHttpFactory, SpectatorHttp, HttpMethod } from '@ngneat/spectator';
 
 import { SubscriptionsService } from './subscriptions.service';
+import { SubscriptionType } from '../subscription-type.enum';
 
-describe('SubscriptionsService', () => {
-  let service: SubscriptionsService;
+describe('Subscriptions service testing', () => {
+  let spectator: SpectatorHttp<SubscriptionsService>;
+  const createHttp = createHttpFactory(SubscriptionsService);
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(SubscriptionsService);
-  });
+  beforeEach(() => (spectator = createHttp()));
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
+  it('should added subscriptions', () => {
+    spectator.service.addSubscriptions(SubscriptionType.Year).subscribe();
+
+    const req = spectator.expectOne('http://localhost:5050/api/subscriptions', HttpMethod.POST);
   });
 });

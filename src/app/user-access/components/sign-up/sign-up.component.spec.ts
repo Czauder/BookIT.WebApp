@@ -4,6 +4,7 @@ import { SignUpComponent } from './sign-up.component';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ValidatorsBuilder } from '../../validators/validators-builder';
 import { MaterialModule } from 'src/app/material/material.module';
+import { AuthBackendService } from '../../services/auth-backend.service';
 
 describe('SignUpComponent', () => {
   let spectator: SpectatorHost<SignUpComponent>;
@@ -12,7 +13,7 @@ describe('SignUpComponent', () => {
     component: SignUpComponent,
     declarations: [],
     imports: [MaterialModule],
-    providers: [mockProvider(FormBuilder)]
+    providers: [mockProvider(FormBuilder), mockProvider(AuthBackendService)]
   });
 
   beforeEach(() => {
