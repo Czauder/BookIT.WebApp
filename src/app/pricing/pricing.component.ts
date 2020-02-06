@@ -10,7 +10,6 @@ import { SubscriptionType } from './subscription-type.enum';
   styleUrls: ['./pricing.component.scss']
 })
 export class PricingComponent implements OnInit {
-  public isSubscribed: false;
 
   constructor(private subscriptionsService: SubscriptionsService, private toastr: ToastrService) {}
 
@@ -18,8 +17,7 @@ export class PricingComponent implements OnInit {
 
   public addYearSubscription(): void {
     this.subscriptionsService.addSubscriptions(SubscriptionType.Year).subscribe(response => {
-      this.isSubscribed = response;
-      console.log(this.isSubscribed);
+      console.log(response);
 
       this.showToaster();
     });
