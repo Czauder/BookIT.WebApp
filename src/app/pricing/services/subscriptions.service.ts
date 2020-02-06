@@ -16,7 +16,7 @@ export class SubscriptionsService {
   public addSubscriptions(subscriptionType: SubscriptionType): Observable<any> {
     return this.http.post(
       this.url + '/api/subscriptions',
-      { customerId: localStorage.getItem('UserID'), subscriptionType },
+      { customerId: localStorage.getItem('AccessToken'), subscriptionType },
       { headers: this.headers }
     );
   }
