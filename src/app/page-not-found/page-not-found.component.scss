@@ -1,5 +1,30 @@
+@import '../../styles-library/colors-variables.scss';
+
 div {
-    height: 100%;
-    display: grid;
-    place-content: center;
+  height: 100%;
+  display: grid;
+  place-content: center;
+
+  .text {
+    display: block;
+    text-align: center;
+    background: -webkit-linear-gradient(180deg, rgb(3, 3, 3) 31%, rgba(229, 9, 20, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 12em;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    user-select: none;
+  
+    &.desc {
+      font-size: 3em;
+    }
+  }
+
+  button {
+      color: white;
+      font-size: 1em;
+  }
 }
+
+
