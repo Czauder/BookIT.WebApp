@@ -8,10 +8,11 @@ import { DialogLogoutComponent } from './layout-shell/components/user-menu/dialo
 import { LayoutShellModule } from './layout-shell/layout-shell.module';
 import { MaterialModule } from './material/material.module';
 import { ToastrModule } from 'ngx-toastr';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, PageNotFoundComponent],
   imports: [
     MaterialModule,
     BrowserModule,
