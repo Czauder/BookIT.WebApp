@@ -75,7 +75,7 @@ export class SignUpComponent implements OnInit {
     if (this.registerForm.valid) {
       this.authService.registerCustomer(this.registerForm.value).subscribe(response => {
         console.log(response);
-        localStorage.setItem('JWT', response);
+        localStorage.setItem('AccessToken', response.token);
       },
      );
     }
