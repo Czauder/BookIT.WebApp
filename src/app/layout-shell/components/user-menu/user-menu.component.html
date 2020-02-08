@@ -1,9 +1,9 @@
 <div class="wrapper">
     <app-notifications></app-notifications>
 <mat-menu #appMenu="matMenu">
-    <button mat-menu-item>Account</button>
+    <button mat-menu-item (click)="openDialogAccount()">Account</button>
     <button mat-menu-item>Settings</button>
-    <button mat-menu-item (click)="openDialog()">Log out</button>
+    <button mat-menu-item (click)="openDialogLogout()">Log out</button>
 </mat-menu>
 <button mat-icon-button>
     <mat-icon [matMenuTriggerFor]="appMenu" >account_circle</mat-icon>
