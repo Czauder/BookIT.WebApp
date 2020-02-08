@@ -21,7 +21,7 @@ export class UserMenuComponent implements OnInit {
 
   public openDialogAccount(): void {
     const dialogRef = this.dialog.open(DialogAccountComponent, {
-      width: '40%'
+      width: '30%'
     });
   }
 }
