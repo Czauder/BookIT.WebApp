@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 
 import { AuthBackendService } from '../../services/auth-backend.service';
 import { ValidatorsBuilder } from '../../validators/validators-builder';
+import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -15,8 +16,7 @@ export class SignUpComponent implements OnInit {
   public showConfirm = false;
   public registerForm: FormGroup;
 
-
-  constructor(private formBuilder: FormBuilder, private authService: AuthBackendService) {}
+  constructor(private formBuilder: FormBuilder, private authenticationService: AuthenticationService) {}
 
   public ngOnInit(): void {
     const validationBuilder = new ValidatorsBuilder();
@@ -71,13 +71,9 @@ export class SignUpComponent implements OnInit {
     );
   }
 
-  public submitForm(): void {
+  public onSubmit(): void {
     if (this.registerForm.valid) {
-      this.authService.registerCustomer(this.registerForm.value).subscribe(response => {
-        console.log(response);
-        localStorage.setItem('AccessToken', response.token);
-      },
-     );
+      this.authenticationService.registerCustomer(this.registerForm.value).subscribe(response => response);
     }
     this.isSubmitted = true;
   }

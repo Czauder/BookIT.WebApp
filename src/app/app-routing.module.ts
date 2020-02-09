@@ -4,12 +4,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { LayoutShellComponent } from './layout-shell/layout-shell.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AuthGuard } from './user-access/services/helpers/auth.quard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'books', pathMatch: 'full' },
   {
     path: '',
     component: LayoutShellComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'books',

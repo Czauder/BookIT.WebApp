@@ -4,5 +4,5 @@
 </div>
 <div mat-dialog-actions align="end">
     <button mat-button mat-flat-button color="accent" mat-dialog-close>Cancel</button>
-    <button mat-button mat-raised-button color="warn" mat-dialog-close [routerLink]="['/access']">Yes</button>
+    <button mat-button mat-raised-button color="warn" mat-dialog-close (click)="logout()">Yes</button>
 </div>
