@@ -9,11 +9,11 @@ import { User } from 'src/app/user-access/models/user.model';
   styleUrls: ['./dialog-logout.component.scss']
 })
 export class DialogLogoutComponent implements OnInit {
-  public currentUser: User;
+  public token: string;
 
   constructor(private router: Router, private authenticationService: AuthenticationService) {
-    this.authenticationService.currentUser.subscribe(x => (this.currentUser = x));
-    console.log(this.currentUser);
+    this.authenticationService.currentUser.subscribe(x => (this.token = x));
+    console.log(this.token);
     // narazie tutaj mam nulla bo nie mam tokena
   }
 

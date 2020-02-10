@@ -5,19 +5,20 @@ import { map } from 'rxjs/operators';
 
 import { environment } from 'src/environments/environment';
 import { User } from '../models/user.model';
+import { JwtDecoderService } from './jwt-decoder.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<User>;
-  public currentUser: Observable<User>;
+  public currentUser: Observable<string>;
+  public myUser: User;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private jwtDecoderService: JwtDecoderService) {
     console.log(localStorage.getItem('currentUser'));
 
     this.currentUserSubject = new BehaviorSubject<User>(
       localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser')) : null
     );
-    this.currentUser = this.currentUserSubject.asObservable();
   }
 
   private headers = new HttpHeaders().set('Content-Type', 'application/json');
@@ -32,7 +33,6 @@ export class AuthenticationService {
       map(user => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
         localStorage.setItem('currentUser', user.token);
-        this.currentUserSubject.next(user.token);
         return user;
       })
     );
@@ -40,11 +40,12 @@ export class AuthenticationService {
 
   public login(loginForm: any) {
     console.log(loginForm);
-    return this.http.post<any>(`${environment.baseURL}/api/auth/signin`, loginForm).pipe(
+    return this.http.post<LoginResult>(`${environment.baseURL}/api/auth/signin`, loginForm).pipe(
       map(user => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
         localStorage.setItem('currentUser', user.token);
-        this.currentUserSubject.next(user.token);
+        let usr = this.jwtDecoderService.getDecodedAccessToken(user.token);
+        this.currentUserSubject.next(usr);
         return user;
       })
     );
@@ -55,4 +56,10 @@ export class AuthenticationService {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
   }
+}
+
+interface LoginResult {
+  message: string;
+  customerId: string;
+  token: string;
 }
