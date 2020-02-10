@@ -1,7 +1,7 @@
 <mat-card class="card" align="center">
   <mat-card-title>BookIT</mat-card-title>
   <mat-card-subtitle>Sign in to continue to BookIT.</mat-card-subtitle>
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="loginForm">
     <mat-card-content>
       <mat-form-field appearance="fill" color="accent">
         <mat-label>Email</mat-label>
@@ -27,8 +27,7 @@
       <button mat-raised-button color="warn" mat-button [routerLink]="['/access/signup']"
         routerLinkActive="active">Create
         Account</button>
-      <button mat-button mat-raised-button color="warn" [disabled]="!loginForm.valid">Next</button>
+      <button mat-button mat-raised-button color="warn" [disabled]="!loginForm.valid" (click)="onSubmit()">Next</button>
     </mat-card-actions>
-    <div *ngIf="errors" class="">{{errors}}</div>
   </form>
 </mat-card>

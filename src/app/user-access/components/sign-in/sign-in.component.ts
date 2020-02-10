@@ -52,7 +52,7 @@ export class SignInComponent implements OnInit {
     });
 
     // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   // easy acces to form fields
@@ -71,7 +71,7 @@ export class SignInComponent implements OnInit {
       subscribe(
         response => {
           console.log(response);
-          this.router.navigate(['/books']);
+          this.router.navigate(['/access/signin']);
         },
         error => {
           this.errors = error;
@@ -82,7 +82,7 @@ export class SignInComponent implements OnInit {
   }
 
   public showToaster(): void {
-    this.toastr.error(`It's something! \uD83D\uDE22 Try again!`, '', {
+    this.toastr.error(`It's something wrong! \uD83D\uDE22 Try again!`, '', {
       progressBar: true,
       positionClass: 'toast-bottom-full-width'
     });
