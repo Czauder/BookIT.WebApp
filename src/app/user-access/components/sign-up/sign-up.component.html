@@ -1,7 +1,5 @@
-<ng-container *ngIf="isSubmitted; then notification else signup">
-</ng-container>
+
 <div class="wrapper">
-  <ng-template #signup>
     <mat-card class="card" align="center">
       <mat-card-title>Create your BookIT account</mat-card-title>
       <mat-card-subtitle>to continue to BookIT.</mat-card-subtitle>
@@ -70,18 +68,4 @@
         </mat-card-actions>
       </form>
     </mat-card>
-  </ng-template>
 </div>
-
-<ng-template #notification>
-  <mat-card align="center">
-    <mat-card-title>Account Created</mat-card-title>
-    <mat-card-subtitle>We've send a confirmation link to <br> Cichon@gmail.com </mat-card-subtitle>
-    <mat-card-content>
-      <mat-card-subtitle>You should received an email shortly.</mat-card-subtitle>
-    </mat-card-content>
-    <mat-card-actions align="end">
-      <button mat-raised-button color="warn" [routerLink]="['/access/signin']" routerLinkActive="active">Log in</button>
-    </mat-card-actions>
-  </mat-card>
-</ng-template>

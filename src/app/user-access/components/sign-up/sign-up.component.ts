@@ -3,6 +3,8 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 
 import { AuthenticationService } from '../../services/authentication.service';
 import { ValidatorsBuilder } from '../../validators/validators-builder';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-sign-up',
@@ -10,12 +12,17 @@ import { ValidatorsBuilder } from '../../validators/validators-builder';
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
-  public isSubmitted = false;
   public showPwd = false;
   public showConfirm = false;
   public registerForm: FormGroup;
+  errors: any;
 
-  constructor(private formBuilder: FormBuilder, private authenticationService: AuthenticationService) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private authenticationService: AuthenticationService,
+    private router: Router,
+    private toastr: ToastrService
+  ) {}
 
   public ngOnInit(): void {
     const validationBuilder = new ValidatorsBuilder();
@@ -72,8 +79,23 @@ export class SignUpComponent implements OnInit {
 
   public onSubmit(): void {
     if (this.registerForm.valid) {
-      this.authenticationService.registerCustomer(this.registerForm.value).subscribe(response => response);
+      this.authenticationService.registerCustomer(this.registerForm.value).subscribe(
+        response => {
+          console.log(response);
+          this.router.navigate(['/books']);
+        },
+        error => {
+          this.errors = error;
+          this.showToaster();
+        }
+      );
     }
-    this.isSubmitted = true;
+  }
+
+  public showToaster(): void {
+    this.toastr.error(`It's something! \uD83D\uDE22 Try again!` , '', {
+      progressBar: true,
+      positionClass: 'toast-bottom-full-width'
+    });
   }
 }
