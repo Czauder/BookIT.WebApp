@@ -11,6 +11,7 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatDialogModule,
+  MatTooltipModule,
 } from '@angular/material';
 
 const material = [
@@ -24,7 +25,8 @@ const material = [
   MatMenuModule,
   MatFormFieldModule,
   MatInputModule,
-  MatDialogModule
+  MatDialogModule,
+  MatTooltipModule
 ];
 
 @NgModule({

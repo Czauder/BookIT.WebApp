@@ -16,13 +16,15 @@ export class SignInComponent implements OnInit {
   public submitted = false;
   public returnUrl: string;
   public showPwd = false;
-  public error = '';
+  public errors = '';
+  
 
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private toastr: ToastrService
   ) {
     if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/']);
@@ -63,32 +65,26 @@ export class SignInComponent implements OnInit {
     this.showPwd = !this.showPwd;
   }
 
-  public onSubmit() {
-    this.submitted = true;
-
-    if (this.loginForm.invalid) {
-      return;
+  public onSubmit(): void {
+    if (this.loginForm.valid) {
+      this.authenticationService.login(this.loginForm.value).
+      subscribe(
+        response => {
+          console.log(response);
+          this.router.navigate(['/books']);
+        },
+        error => {
+          this.errors = error;
+          this.showToaster();
+        }
+      );
     }
+  }
 
-    this.authenticationService.login(this.f.email.value, this.f.password.value).subscribe(
-      response => response,
-      error => {
-        this.error = error;
-      }
-    );
-
-    //   this.authenticationService
-    //     .login(this.f.email.value, this.f.password.value)
-    //     .pipe(first())
-    //     .subscribe(
-    //       data => {
-    //         this.router.navigate([this.returnUrl]);
-    //       },
-    //       error => {
-    //         this.error = error;
-    //       }
-    //     );
-    //   console.log(this.f.email.value, this.f.password.value);
-    // }
+  public showToaster(): void {
+    this.toastr.error(`It's something! \uD83D\uDE22 Try again!`, '', {
+      progressBar: true,
+      positionClass: 'toast-bottom-full-width'
+    });
   }
 }

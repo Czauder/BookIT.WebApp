@@ -38,18 +38,17 @@ export class AuthenticationService {
     );
   }
 
-  public login(username: string, password: string) {
-    return this.http
-      .post<any>(`${environment.baseURL}/api/auth/signin`, { username, password })
-      .pipe(
-        map(user => {
-          // store user details and jwt token in local storage to keep user logged in between page refreshes
-          localStorage.setItem('currentUser', user.token);
-          console.log(user);
-          this.currentUserSubject.next(user.token);
-          return user;
-        })
-      );
+  public login(loginForm: any) {
+    console.log(loginForm);
+    return this.http.post<any>(`${environment.baseURL}/api/auth/signin`, loginForm).pipe(
+      map(user => {
+        // store user details and jwt token in local storage to keep user logged in between page refreshes
+        localStorage.setItem('currentUser', user.token);
+        console.log(user);
+        this.currentUserSubject.next(user.token);
+        return user;
+      })
+    );
   }
 
   public logout() {

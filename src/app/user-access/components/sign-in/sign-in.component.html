@@ -29,6 +29,6 @@
         Account</button>
       <button mat-button mat-raised-button color="warn" [disabled]="!loginForm.valid">Next</button>
     </mat-card-actions>
-    <div *ngIf="error" class="">{{error}}</div>
+    <div *ngIf="errors" class="">{{errors}}</div>
   </form>
 </mat-card>
