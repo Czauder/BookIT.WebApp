@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { BehaviorSubject, Observable, fromEvent } from 'rxjs';
+import { map, retryWhen } from 'rxjs/operators';
 
 import { environment } from 'src/environments/environment';
 import { User } from '../models/user.model';
@@ -32,7 +32,8 @@ export class AuthenticationService {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
         localStorage.setItem('currentUser', user.token);
         return user;
-      })
+      }),
+      retryWhen(_ => fromEvent(window, 'online'))
     );
   }
 
@@ -45,7 +46,8 @@ export class AuthenticationService {
         let usr = this.jwtDecoderService.getDecodedAccessToken(user.token);
         this.currentUserSubject.next(usr);
         return user;
-      })
+      }),
+      retryWhen(_ => fromEvent(window, 'online'))
     );
   }
 
