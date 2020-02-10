@@ -75,6 +75,7 @@ export class SignInComponent implements OnInit {
         },
         error => {
           this.errors = error;
+          console.log(this.errors);
           this.showToaster();
         }
       );
@@ -82,7 +83,7 @@ export class SignInComponent implements OnInit {
   }
 
   public showToaster(): void {
-    this.toastr.error(`It's something wrong! \uD83D\uDE22 Try again!`, '', {
+    this.toastr.error(`It's something wrong! \uD83D\uDE22 ${this.errors}!`, '', {
       progressBar: true,
       positionClass: 'toast-bottom-full-width'
     });
