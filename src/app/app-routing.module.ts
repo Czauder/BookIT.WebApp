@@ -11,7 +11,7 @@ const routes: Routes = [
   {
     path: '',
     component: LayoutShellComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     children: [
       {
         path: 'books',
