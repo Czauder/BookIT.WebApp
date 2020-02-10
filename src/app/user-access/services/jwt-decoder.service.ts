@@ -12,7 +12,7 @@ export class JwtDecoderService {
     try {
       console.log(jwt_decode(token));
       const decodedToken = jwt_decode(token);
-      const usr = new User(decodedToken.nameId, decodedToken.email, decodedToken.role);
+      const usr = new User(decodedToken.nameid, decodedToken.email, decodedToken.role);
       return usr;
     } catch (Error) {
       return null;

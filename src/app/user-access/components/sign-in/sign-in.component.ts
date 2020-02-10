@@ -16,7 +16,7 @@ export class SignInComponent implements OnInit {
   public submitted = false;
   public returnUrl: string;
   public showPwd = false;
-  public errors = '';
+  public errors: any;
   
 
   constructor(
@@ -83,7 +83,7 @@ export class SignInComponent implements OnInit {
   }
 
   public showToaster(): void {
-    this.toastr.error(`It's something wrong! \uD83D\uDE22 ${this.errors}!`, '', {
+    this.toastr.error(`It's something wrong! \uD83D\uDE22 ${this.errors.statusText} ${this.errors.status}!`, '', {
       progressBar: true,
       positionClass: 'toast-bottom-full-width'
     });
