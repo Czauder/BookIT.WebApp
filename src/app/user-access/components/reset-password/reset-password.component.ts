@@ -35,7 +35,7 @@ export class ResetPasswordComponent implements OnInit {
   }
 
   public showPassword(): void {
-    this.showPwd = !this.showPwd;  
+    this.showPwd = !this.showPwd;
   }
 
   public showConfirmPassword(): void {

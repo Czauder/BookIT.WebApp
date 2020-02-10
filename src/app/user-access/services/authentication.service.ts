@@ -44,7 +44,6 @@ export class AuthenticationService {
       map(user => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
         localStorage.setItem('currentUser', user.token);
-        console.log(user);
         this.currentUserSubject.next(user.token);
         return user;
       })

@@ -82,18 +82,19 @@ export class SignUpComponent implements OnInit {
       this.authenticationService.registerCustomer(this.registerForm.value).subscribe(
         response => {
           console.log(response);
-          this.router.navigate(['/books']);
         },
         error => {
           this.errors = error;
+          console.log(this.errors);
           this.showToaster();
         }
       );
+      this.router.navigate(['/access/signin']);
     }
   }
 
   public showToaster(): void {
-    this.toastr.error(`It's something! \uD83D\uDE22 Try again!` , '', {
+    this.toastr.error(`It's something! \uD83D\uDE22 Try again!`, '', {
       progressBar: true,
       positionClass: 'toast-bottom-full-width'
     });

@@ -71,7 +71,7 @@ export class SignInComponent implements OnInit {
       subscribe(
         response => {
           console.log(response);
-          this.router.navigate(['/access/signin']);
+          this.router.navigate(['/books']);
         },
         error => {
           this.errors = error;
