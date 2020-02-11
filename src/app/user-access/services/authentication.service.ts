@@ -16,7 +16,7 @@ export class AuthenticationService {
   constructor(private http: HttpClient, private jwtDecoderService: JwtDecoderService) {
     console.log(localStorage.getItem('currentUser'));
 
-    this.currentUserSubject = new BehaviorSubject<User>(new User(null, null, null));
+    this.currentUserSubject = new BehaviorSubject<User>(null);
   }
 
   private headers = new HttpHeaders().set('Content-Type', 'application/json');

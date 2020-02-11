@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { DialogLogoutComponent } from './dialog-logout/dialog-logout.component';
 import { DialogAccountComponent } from './dialog-account/dialog-account.component';
+import { AuthenticationService } from 'src/app/user-access/services/authentication.service';
 
 @Component({
   selector: 'app-user-menu',
@@ -9,9 +10,18 @@ import { DialogAccountComponent } from './dialog-account/dialog-account.componen
   styleUrls: ['./user-menu.component.scss']
 })
 export class UserMenuComponent implements OnInit {
-  constructor(public dialog: MatDialog) {}
+  public isUser: boolean;
+  constructor(public dialog: MatDialog, private authenticationsService: AuthenticationService) {}
 
-  ngOnInit() {}
+  public ngOnInit(): void {
+    if (this.authenticationsService.currentUserValue !== null) {
+      console.log('zalgowany');
+      this.isUser = true;
+    } else {
+      console.log('nie zalo');
+      this.isUser = false;
+    }
+  }
 
   public openDialogLogout(): void {
     const dialogRef = this.dialog.open(DialogLogoutComponent, {

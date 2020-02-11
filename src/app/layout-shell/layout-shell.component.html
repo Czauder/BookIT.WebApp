@@ -1,3 +1,7 @@
+<ng-container *ngIf="isUser; then userIn; else userOut">
+</ng-container>
+
+<ng-template #userIn>
 <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #drawer class="sidenav" fixedInViewport="false"
      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
@@ -31,3 +35,37 @@
       <app-footer></app-footer>
     </mat-sidenav-content>
   </mat-sidenav-container>
+</ng-template>
+
+<ng-template #userOut>
+  <mat-sidenav-container class="sidenav-container">
+      <mat-sidenav #drawer class="sidenav" fixedInViewport="false"
+       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+        <mat-toolbar>
+          <app-logo></app-logo>
+        </mat-toolbar>
+        <mat-nav-list>
+        <a mat-list-item [routerLink]="['/books']"> Home</a>
+        <a mat-list-item [routerLink]="['/pricing']"> Pricing</a>
+        <a mat-list-item> About</a>
+        <mat-divider></mat-divider>
+        <a mat-list-item [routerLink]="['/access/signin']"> Login</a>
+        <a mat-list-item [routerLink]="['/access/signup']"> Create Account</a>
+      </mat-nav-list>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <mat-toolbar>
+          <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+            *ngIf="isHandset$ | async">
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+          </button>
+          <app-logo></app-logo>
+          <app-main-menu></app-main-menu>
+          <app-user-menu></app-user-menu>
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+        <app-footer></app-footer>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </ng-template>
