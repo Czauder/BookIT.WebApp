@@ -10,20 +10,22 @@ import { User } from 'src/app/user-access/models/user.model';
   providedIn: 'root'
 })
 export class SubscriptionsService {
-public user: User;
+  public user: User;
 
   private headers = new HttpHeaders()
     .set('Content-Type', 'application/json')
-    .set('Authorization', 'Bearer ' + localStorage.getItem('AccessToken'));
+    .set('Authorization', `Bearer ${localStorage.getItem('currentUser')}`);
 
-  constructor(private http: HttpClient, private authenticationsService: AuthenticationService) {
-  }
+  constructor(private http: HttpClient, private authenticationsService: AuthenticationService) {}
 
   public addSubscriptions(subscriptionType: SubscriptionType): Observable<any> {
     this.user = this.authenticationsService.currentUserValue;
-    return this.http.post(
-      environment.baseURL + '/api/subscriptions',
-      { customerId: this.user.customerId, subscriptionType },
+    return this.http.post<any>(
+      `${environment.baseURL}/api/subscriptions`,
+      {
+        customerId: this.user.customerId,
+        subscriptionType
+      },
       { headers: this.headers }
     );
   }
