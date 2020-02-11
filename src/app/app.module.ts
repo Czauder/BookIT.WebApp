@@ -9,9 +9,11 @@ import { LayoutShellModule } from './layout-shell/layout-shell.module';
 import { MaterialModule } from './material/material.module';
 import { ToastrModule } from 'ngx-toastr';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AboutComponent } from './about/about.component';
+import { FavoritesBooksComponent } from './favorites-books/favorites-books.component';
 
 @NgModule({
-  declarations: [AppComponent, PageNotFoundComponent],
+  declarations: [AppComponent, PageNotFoundComponent, AboutComponent, FavoritesBooksComponent],
   imports: [
     MaterialModule,
     BrowserModule,

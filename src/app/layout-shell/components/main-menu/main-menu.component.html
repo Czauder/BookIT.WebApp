@@ -5,9 +5,9 @@
 <ng-template #userIn>
 <div class="wrapper">
     <button mat-button [routerLink]="['/books']">Home</button>
-    <button mat-button>Favorites Books</button>
+    <button mat-button [routerLink]="['/favorites']">Favorites Books</button>
     <button mat-button [routerLink]="['/pricing']">Pricing</button>
-    <button mat-button>About</button>
+    <button mat-button [routerLink]="['/about']">About</button>
 </div>
 </ng-template>
 
@@ -17,6 +17,6 @@
     <div class="wrapper">
         <button mat-button [routerLink]="['/books']">Home</button>
         <button mat-button [routerLink]="['/pricing']">Pricing</button>
-        <button mat-button>About</button>
+        <button mat-button [routerLink]="['/about']">About</button>
     </div>
 </ng-template>

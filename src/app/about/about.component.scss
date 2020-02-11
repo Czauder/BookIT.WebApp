@@ -1,0 +1,30 @@
+@import 'src/styles-library/colors-variables.scss';
+
+.wrapper {
+  height: 100%;
+  display: grid;
+  place-content: center;
+  margin: 0 30%;
+
+  span {
+    color: $red-primary;
+  }
+
+  button {
+    margin-top: 5em;
+  }
+}
+
+@media (max-width: 1100px) {
+  .wrapper {
+    height: 100%;
+    margin: 0 10%;
+  }
+}
+
+@media (max-width: 640px) {
+  .wrapper {
+    height: 120%;
+    margin: 0 5%;
+  }
+}
