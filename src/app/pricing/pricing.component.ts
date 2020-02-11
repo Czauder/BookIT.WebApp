@@ -3,6 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 
 import { SubscriptionsService } from './services/subscriptions.service';
 import { SubscriptionType } from './subscription-type.enum';
+import { AuthenticationService } from '../user-access/services/authentication.service';
 
 @Component({
   selector: 'app-pricing',
@@ -12,10 +13,21 @@ import { SubscriptionType } from './subscription-type.enum';
 export class PricingComponent implements OnInit {
   public responseMessage: string;
   public responseMessageError: string;
+  public isUser: boolean;
 
-  constructor(private subscriptionsService: SubscriptionsService, private toastr: ToastrService) {}
+  constructor(
+    private subscriptionsService: SubscriptionsService,
+    private authenticationsService: AuthenticationService,
+    private toastr: ToastrService
+  ) {}
 
-  ngOnInit() {}
+  public ngOnInit(): void {
+    if (this.authenticationsService.currentUserValue !== null) {
+      this.isUser = true;
+    } else {
+      this.isUser = false;
+    }
+  }
 
   public addYearSubscription(): void {
     this.subscriptionsService.addSubscriptions(SubscriptionType.Year).subscribe(

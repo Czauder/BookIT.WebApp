@@ -112,6 +112,12 @@ h1 {
           font-size: 23px;
         }
       }
+      button[disabled] {
+        border: 1px solid #999999;
+        background-color: #cccccc;
+        color: #666666;
+        cursor: unset;
+      }
     }
   }
   &:hover {
@@ -224,6 +230,15 @@ h1 {
       box-shadow: 0 2px 4px darken($red-primary, 20);
       color: $primary-text-color;
       font-size: 17px;
+      box-shadow: none;
     }
+  }
+
+  button[disabled] {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+    cursor: unset;
+    box-shadow: none;
   }
 }
