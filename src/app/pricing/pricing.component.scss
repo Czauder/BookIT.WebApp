@@ -2,9 +2,10 @@
 @import 'src/styles-library/fonts-variables.scss';
 
 .container {
-  height: 100vh;
+  height: 80vh;
   margin: 3em;
   display: grid;
+  place-content: center;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr;
   grid-column-gap: 2em;
