@@ -26,6 +26,7 @@ export class PricingComponent implements OnInit {
       this.isUser = true;
     } else {
       this.isUser = false;
+      this.showSuccess();
     }
   }
 
@@ -62,6 +63,17 @@ export class PricingComponent implements OnInit {
         });
         this.responseMessageError = null;
       }
+    }
+  }
+
+  public showSuccess(): void {
+    if (!this.isUser) {
+      this.toastr.error('You must be login to get subscriptions! 😪', '', {
+        progressBar: true,
+        positionClass: 'toast-bottom-full-width',
+        closeButton: true,
+        timeOut: 5000
+      });
     }
   }
 }
