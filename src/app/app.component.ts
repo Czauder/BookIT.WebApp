@@ -14,18 +14,16 @@ export class AppComponent implements OnInit {
   public constructor(private toastr: ToastrService) {}
   ngOnInit(): void {
     this.offline$.subscribe(_ =>
-      this.toastr.error(`We are offline`, '', {
+      this.toastr.error(`We are offline! \uD83D\uDE22 \uD83D\uDE22`, '', {
         progressBar: true,
         positionClass: 'toast-bottom-full-width'
       })
     );
     this.online$.subscribe(_ =>
-      this.toastr.info(`We are online`, '', {
+      this.toastr.info(`We are online! 🙏🙏`, '', {
         progressBar: true,
         positionClass: 'toast-bottom-full-width'
       })
     );
   }
-  title = 'bookIT';
-
 }
