@@ -1,0 +1,57 @@
+.container {
+  height: 88%;
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  place-content: center;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 0.2fr 50%;
+  grid-template-areas:
+    'title1 title1 . . .'
+    'content1 content1 content1 content1 content1';
+}
+
+@media (max-width: 1024px) {
+  .container {
+    min-height: 100%;
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 0.1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      'title1 title1'
+      'content1 content1'
+      'content1 content1'
+      'content1 content1';
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    height: 200%;
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      'title1'
+      'content1'
+      'content1'
+      'content1'
+      'content1'
+      'content1';
+  }
+}
+
+.content1 {
+  grid-area: content1;
+  background-color: rgb(41, 41, 41);
+}
+
+.title {
+  grid-area: title1;
+  justify-self: left;
+  margin: auto 0;
+}
