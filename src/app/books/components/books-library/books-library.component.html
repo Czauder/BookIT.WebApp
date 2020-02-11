@@ -1,11 +1,11 @@
 <div class="wrapper">
   <ng-container *ngFor="let book of books; let i=index">
     <div [ngClass]="'book' + (i+1)" class="item01">
-      <div class="img" style="background-image: url(../../../../../assets/icon/book/book-firebasee.png)"></div>
+    <div class="img" [ngStyle]="{'background-image':'url('+book.imageUrl+')'}"></div>
       <div class="card">
         <h3>{{book.name}}</h3>
         <div class="info">
-          <div class="spec">{{book.category}}</div>
+          <div class="spec">FULLSTACK</div>
           <div class="dur">200 pages</div>
         </div>
         <div class="tags"> <span>JavaScript</span><span>Functional Programing</span><span>ES6</span></div>

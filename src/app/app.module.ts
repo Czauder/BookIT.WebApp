@@ -11,6 +11,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AboutComponent } from './about/about.component';
 import { FavoritesBooksComponent } from './favorites-books/favorites-books.component';
+import { JwtInterceptor } from './user-access/services/helpers/jwt.interceptor';
+import { ErrorInterceptor } from './user-access/services/helpers/error.interceptor';
 
 @NgModule({
   declarations: [AppComponent, PageNotFoundComponent, AboutComponent, FavoritesBooksComponent],
@@ -27,6 +29,8 @@ import { FavoritesBooksComponent } from './favorites-books/favorites-books.compo
     })
   ],
   providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],
   bootstrap: [AppComponent],
   entryComponents: [DialogLogoutComponent]

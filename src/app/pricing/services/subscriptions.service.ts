@@ -12,10 +12,6 @@ import { User } from 'src/app/user-access/models/user.model';
 export class SubscriptionsService {
   public user: User;
 
-  private headers = new HttpHeaders()
-    .set('Content-Type', 'application/json')
-    .set('Authorization', `Bearer ${localStorage.getItem('currentUser')}`);
-
   constructor(private http: HttpClient, private authenticationsService: AuthenticationService) {}
 
   public addSubscriptions(subscriptionType: SubscriptionType): Observable<any> {
@@ -26,7 +22,6 @@ export class SubscriptionsService {
         customerId: this.user.customerId,
         subscriptionType
       },
-      { headers: this.headers }
     );
   }
 }

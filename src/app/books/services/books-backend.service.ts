@@ -1,18 +1,19 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, fromEvent } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+
 import { Book } from '../models/book.model';
-import { retryWhen } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BooksBackendService {
-  private url = 'http://localhost:5050';
+
 
   constructor(private http: HttpClient) {}
 
-  public getBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>(this.url + '/api/books').pipe(retryWhen(_ => fromEvent(window, 'online')));
+  public getBooks(): Observable<any> {
+    return this.http.get<any>(`${environment.baseURL}/api/books`);
   }
 }
