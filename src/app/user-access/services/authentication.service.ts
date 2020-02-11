@@ -6,6 +6,7 @@ import { map, retryWhen } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { User } from '../models/user.model';
 import { JwtDecoderService } from './jwt-decoder.service';
+import { LoginResult } from '../models/login-result.model';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
@@ -32,7 +33,7 @@ export class AuthenticationService {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
         localStorage.setItem('currentUser', user.token);
         return user;
-      }), 
+      }),
     );
   }
 
@@ -49,15 +50,10 @@ export class AuthenticationService {
     );
   }
 
-  public logout() {
+  public logout(): void {
     // remove user from local storage to log user out
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
   }
 }
 
-interface LoginResult {
-  message: string;
-  customerId: string;
-  token: string;
-}
