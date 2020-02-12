@@ -113,9 +113,9 @@ h1 {
         }
       }
       button[disabled] {
-        border: 1px solid #999999;
-        background-color: #cccccc;
-        color: #666666;
+        border: 1px solid $disabled-bg-border;
+        background-color: $disabled-bg;
+        color: $disabled-text-color;
         cursor: unset;
       }
     }
@@ -235,9 +235,9 @@ h1 {
   }
 
   button[disabled] {
-    border: 1px solid #999999;
-    background-color: #cccccc;
-    color: #666666;
+    border: 1px solid $disabled-bg-border;
+    background-color: $disabled-bg;
+    color: $disabled-text-color;
     cursor: unset;
     box-shadow: none;
   }
