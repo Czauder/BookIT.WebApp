@@ -9,14 +9,13 @@ import { Book } from '../../models/book.model';
   styleUrls: ['./books-library.component.scss']
 })
 export class BooksLibraryComponent implements OnInit {
-  public books: {books: Book[]};
+  public books: Book[];
 
   constructor(private booksBackendService: BooksBackendService) {}
 
   ngOnInit() {
     this.booksBackendService.getBooks().subscribe(books => {
-      console.log(books);
-      // this.books = books;
+      this.books = books;
     });
   }
 }

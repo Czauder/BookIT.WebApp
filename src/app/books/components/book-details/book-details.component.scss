@@ -1,7 +1,6 @@
 @import 'src/styles-library/colors-variables.scss';
 @import 'src/styles-library/fonts-variables.scss';
 
-
 .wrapper {
   display: grid;
   min-height: 95%;
@@ -27,7 +26,7 @@
     perspective: 871px;
 
     img {
-      height: 80%;
+      height: 550px;
       -webkit-box-shadow: -44px 33px 51px 14px rgba(0, 0, 0, 0.75);
       -moz-box-shadow: -44px 33px 51px 14px rgba(0, 0, 0, 0.75);
       box-shadow: -44px 33px 51px 14px rgba(0, 0, 0, 0.75);
@@ -85,10 +84,11 @@
     }
 
     @media (max-width: 1024px) {
+
       span {
-      font-size: 1em;
+        font-size: 1em;
+      }
     }
-  }
 
     .pages {
       grid-area: pages;
@@ -149,7 +149,7 @@
       perspective: 0px;
 
       img {
-        height: 70%;
+        height: 400px;
         -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.75);
         -moz-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.75);
         box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.75);
@@ -162,5 +162,3 @@
     margin: 2em;
   }
 }
-  
-

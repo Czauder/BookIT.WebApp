@@ -9,4 +9,7 @@ export interface Book {
   };
   category: string;
   author: string;
+  tags: Array<string>;
+  pageCount: number;
+  imageUrl: string;
 }
