@@ -9,19 +9,9 @@ import { FavoritesBooksService } from './services/favorites-books.service';
   styleUrls: ['./favorites-books.component.scss']
 })
 export class FavoritesBooksComponent implements OnInit {
-  public favoritesBooks: Book[];
 
   constructor(
-    private favoritesBookService: FavoritesBooksService,
-    private authenticationService: AuthenticationService
   ) {}
 
- public ngOnInit(): void {
-    this.favoritesBookService
-      .getFavoritesBooks(this.authenticationService.currentUserValue.customerId)
-      .subscribe(favoritesBooks => {
-        this.favoritesBooks = favoritesBooks;
-        console.log(this.favoritesBooks);
-      } );
-  }
+ public ngOnInit(): void {}
 }

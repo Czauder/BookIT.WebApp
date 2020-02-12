@@ -13,9 +13,10 @@ import { AboutComponent } from './about/about.component';
 import { FavoritesBooksComponent } from './favorites-books/favorites-books.component';
 import { JwtInterceptor } from './user-access/services/helpers/jwt.interceptor';
 import { ErrorInterceptor } from './user-access/services/helpers/error.interceptor';
+import { FavoritesBooksLibraryComponent } from './favorites-books/favorites-books-library/favorites-books-library.component';
 
 @NgModule({
-  declarations: [AppComponent, PageNotFoundComponent, AboutComponent, FavoritesBooksComponent],
+  declarations: [AppComponent, PageNotFoundComponent, AboutComponent, FavoritesBooksComponent, FavoritesBooksLibraryComponent],
   imports: [
     MaterialModule,
     BrowserModule,
