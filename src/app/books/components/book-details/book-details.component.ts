@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { BooksBackendService } from '../../services/books-backend.service';
 import { ActivatedRoute } from '@angular/router';
+import { AuthenticationService } from 'src/app/user-access/services/authentication.service';
+import { FavoritesBooksService } from 'src/app/favorites-books/favorites-books.service';
 
 @Component({
   selector: 'app-book-details',
@@ -11,10 +13,14 @@ import { ActivatedRoute } from '@angular/router';
 export class BookDetailsComponent implements OnInit {
   public isFavorite = false;
   public book: any;
+  public isUser: boolean;
+
   constructor(
     private toastr: ToastrService,
     private bookBackendService: BooksBackendService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private authenticationsService: AuthenticationService,
+    private favoritesBooksService: FavoritesBooksService
   ) {}
 
   ngOnInit() {
@@ -25,9 +31,19 @@ export class BookDetailsComponent implements OnInit {
         this.book = book;
       });
     });
+
+    if (this.authenticationsService.currentUserValue !== null) {
+      this.isUser = true;
+    } else {
+      this.isUser = false;
+    }
   }
 
   public addToFavorites() {
+    this.favoritesBooksService.postFavoritesBooks(
+      this.authenticationsService.currentUserValue.customerId,
+      this.book.id
+    ).subscribe();
     if (!this.isFavorite) {
       this.isFavorite = true;
       this.showToaster();

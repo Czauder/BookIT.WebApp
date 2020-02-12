@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { SubscriptionsService } from './services/subscriptions.service';
 import { SubscriptionType } from './subscription-type.enum';
 import { AuthenticationService } from '../user-access/services/authentication.service';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-pricing',
@@ -31,23 +32,31 @@ export class PricingComponent implements OnInit {
   }
 
   public addYearSubscription(): void {
-    this.subscriptionsService.addSubscriptions(SubscriptionType.Year).subscribe(
-      response => {
-        if (response === null) {
+    this.subscriptionsService
+      .addSubscriptions(SubscriptionType.Year)
+      .pipe(
+        tap(user => {
+          this.authenticationsService.setToken(user.token);
+        })
+      )
+      .subscribe(
+        response => {
+          if (response === null) {
+            this.showToaster(false);
+          }
+          this.responseMessage = response.message;
+          console.log(this.responseMessage);
+          console.log(response);
+          this.showToaster(true);
+        },
+        error => {
+          console.log(this.responseMessageError);
+          console.log(error);
+
+          this.responseMessageError = error.error.Message;
           this.showToaster(false);
         }
-        this.responseMessage = response.message;
-        console.log(this.responseMessage);
-        this.showToaster(true);
-      },
-      error => {
-        console.log(this.responseMessageError);
-        console.log(error);
-
-        this.responseMessageError = error.error.Message;
-        this.showToaster(false);
-      }
-    );
+      );
   }
 
   public showToaster(isSuccess: boolean): void {

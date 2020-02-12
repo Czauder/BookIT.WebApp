@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable, fromEvent } from 'rxjs';
-import { map, retryWhen } from 'rxjs/operators';
+import { map, retryWhen, tap } from 'rxjs/operators';
 
 import { environment } from 'src/environments/environment';
 import { User } from '../models/user.model';
@@ -33,20 +33,16 @@ export class AuthenticationService {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
         localStorage.setItem('currentUser', user.token);
         return user;
-      }),
+      })
     );
   }
 
   public login(loginForm: any) {
     console.log(loginForm);
     return this.http.post<LoginResult>(`${environment.baseURL}/api/auth/signin`, loginForm).pipe(
-      map(user => {
-        // store user details and jwt token in local storage to keep user logged in between page refreshes
-        localStorage.setItem('currentUser', user.token);
-        let usr = this.jwtDecoderService.getDecodedAccessToken(user.token);
-        this.currentUserSubject.next(usr);
-        return user;
-      }),
+      tap(user => {
+        this.setToken(user.token);
+      })
     );
   }
 
@@ -55,5 +51,10 @@ export class AuthenticationService {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
   }
-}
 
+  public setToken(token) {
+    localStorage.setItem('currentUser', token);
+    let usr = this.jwtDecoderService.getDecodedAccessToken(token);
+    this.currentUserSubject.next(usr);
+  }
+}
