@@ -3,7 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 import { BooksBackendService } from '../../services/books-backend.service';
 import { ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from 'src/app/user-access/services/authentication.service';
-import { FavoritesBooksService } from 'src/app/favorites-books/favorites-books.service';
+import { FavoritesBooksService } from 'src/app/favorites-books/services/favorites-books.service';
 
 @Component({
   selector: 'app-book-details',
