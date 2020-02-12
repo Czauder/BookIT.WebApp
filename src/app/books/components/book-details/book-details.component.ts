@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { BooksBackendService } from '../../services/books-backend.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-book-details',
@@ -8,9 +10,22 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class BookDetailsComponent implements OnInit {
   public isFavorite = false;
-  constructor(private toastr: ToastrService) {}
+  public book: any;
+  constructor(
+    private toastr: ToastrService,
+    private bookBackendService: BooksBackendService,
+    private route: ActivatedRoute
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      console.log(params.get('id'));
+      this.bookBackendService.getBook(params.get('id')).subscribe(book => {
+        console.log(book);
+        this.book = book;
+      });
+    });
+  }
 
   public addToFavorites() {
     if (!this.isFavorite) {

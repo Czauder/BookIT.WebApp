@@ -16,4 +16,8 @@ export class BooksBackendService {
   public getBooks(): Observable<any> {
     return this.http.get<any>(`${environment.baseURL}/api/books`);
   }
+
+  public getBook(bookId): Observable<any> {
+    return this.http.get<any>(`${environment.baseURL}/api/books/${bookId}`);
+  }
 }

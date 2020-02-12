@@ -1,6 +1,6 @@
 <div class="wrapper">
   <ng-container *ngFor="let book of books; let i=index">
-    <div [ngClass]="'book' + (i+1)" class="item01">
+    <div [ngClass]="'book' + (i+1)" class="item01" [routerLink]="['/books/details', book.id]">
     <div class="img" [ngStyle]="{'background-image':'url('+book.imageUrl+')'}"></div>
       <div class="card">
         <h3>{{book.name}}</h3>
