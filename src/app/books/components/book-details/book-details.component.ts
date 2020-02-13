@@ -23,7 +23,7 @@ export class BookDetailsComponent implements OnInit {
     private favoritesBooksService: FavoritesBooksService
   ) {}
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       console.log(params.get('id'));
       this.bookBackendService.getBook(params.get('id')).subscribe(book => {
@@ -39,18 +39,27 @@ export class BookDetailsComponent implements OnInit {
     }
   }
 
-  public addToFavorites() {
-    this.favoritesBooksService.postFavoritesBooks(
-      this.authenticationsService.currentUserValue.customerId,
-      this.book.id
-    ).subscribe();
+  public addToFavorites(): void {
     if (!this.isFavorite) {
+      this.favoritesBooksService
+        .postFavoritesBooks(this.authenticationsService.currentUserValue.customerId, this.book.id)
+        .subscribe();
       this.isFavorite = true;
       this.showToaster();
     } else {
       this.isFavorite = false;
+      this.removeFromFavorites();
       this.showToaster();
     }
+  }
+
+  public removeFromFavorites(): void {
+    console.log((this.isFavorite = false));
+    this.favoritesBooksService
+      .deleteFavoritesBooks(this.authenticationsService.currentUserValue.customerId, this.book.id)
+      .subscribe(a => {
+        console.log(a);
+      });
   }
 
   public showToaster(): void {

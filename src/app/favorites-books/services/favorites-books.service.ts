@@ -17,7 +17,7 @@ export class FavoritesBooksService {
     return this.http.post(`${environment.baseURL}/api/favorites/`, { customerId, bookId });
   }
 
-  public deleteFavoritesBooks() {
-    this.http.get(`${environment.baseURL}/api/favorites/`);
+  public deleteFavoritesBooks(customerId: string, bookId: string): Observable<any> {
+    return this.http.request('delete', `${environment.baseURL}/api/favorites/`, { body: { customerId, bookId } });
   }
 }
