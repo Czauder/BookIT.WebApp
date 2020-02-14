@@ -10,7 +10,7 @@ describe('AppComponent', () => {
   const createComponent = createHostFactory({
     detectChanges: false,
     component: AppComponent,
-    declarations: [MockComponent(RouterOutlet), mockProvider(AuthenticationService)]
+    declarations: [mockProvider(RouterOutlet), mockProvider(AuthenticationService), mockProvider(AuthenticationService)]
   });
 
   beforeEach(() => (spectator = createComponent(`<app-root></app-root>`)));
