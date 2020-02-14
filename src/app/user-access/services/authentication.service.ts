@@ -1,12 +1,12 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, Observable, fromEvent } from 'rxjs';
-import { map, retryWhen, tap } from 'rxjs/operators';
-
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+
+import { LoginResult } from '../models/login-result.model';
 import { User } from '../models/user.model';
 import { JwtDecoderService } from './jwt-decoder.service';
-import { LoginResult } from '../models/login-result.model';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
@@ -15,12 +15,10 @@ export class AuthenticationService {
   public myUser: User;
 
   constructor(private http: HttpClient, private jwtDecoderService: JwtDecoderService) {
-    console.log(localStorage.getItem('currentUser'));
+    console.log("TOKEN " + localStorage.getItem('currentUser'));
 
     this.currentUserSubject = new BehaviorSubject<User>(null);
   }
-
-  private headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   public get currentUserValue(): User {
     return this.currentUserSubject.value;
@@ -55,6 +53,7 @@ export class AuthenticationService {
   public setToken(token) {
     localStorage.setItem('currentUser', token);
     let usr = this.jwtDecoderService.getDecodedAccessToken(token);
+    console.log("USR" + usr)
     this.currentUserSubject.next(usr);
   }
 }

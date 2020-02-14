@@ -1,10 +1,11 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { SubscriptionType } from '../subscription-type.enum';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
-import { AuthenticationService } from 'src/app/user-access/services/authentication.service';
 import { User } from 'src/app/user-access/models/user.model';
+import { AuthenticationService } from 'src/app/user-access/services/authentication.service';
+import { environment } from 'src/environments/environment';
+
+import { SubscriptionType } from '../subscription-type.enum';
 
 @Injectable({
   providedIn: 'root'
