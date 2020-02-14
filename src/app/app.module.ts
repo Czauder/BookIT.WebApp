@@ -26,7 +26,7 @@ import { FavoritesBooksLibraryComponent } from './favorites-books/favorites-book
     HttpClientModule,
     ToastrModule.forRoot({
       timeOut: 2500,
-      preventDuplicates: true 
+      preventDuplicates: true
     })
   ],
   providers: [
