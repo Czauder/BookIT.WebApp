@@ -9,7 +9,7 @@ import { FavoritesBooksService } from './services/favorites-books.service';
   styleUrls: ['./favorites-books.component.scss']
 })
 export class FavoritesBooksComponent implements OnInit {
-  public isAddedBook: Book[];
+  public isAddedBook: Book[] = [];
 
   constructor(
     private favoritesBooksService: FavoritesBooksService,
@@ -24,4 +24,12 @@ export class FavoritesBooksComponent implements OnInit {
         this.isAddedBook = favoritesBooks;
       });
   }
+
+  // public setContent() {
+  //   if(this.isAddedBook.length) {
+  //     return {
+  //       showContent:
+  //     }
+  //   }
+  // }
 }
