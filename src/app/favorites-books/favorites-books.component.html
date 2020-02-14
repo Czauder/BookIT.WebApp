@@ -1,3 +1,7 @@
+<ng-container *ngIf="isAddedBook.length; then addedBook; else confirmation">
+</ng-container>
+
+<ng-template #addedBook>
 <div class="container">
     <div class="title">
         <h1>Your Favorites Books</h1>
@@ -6,3 +10,20 @@
         <app-favorites-books-library></app-favorites-books-library>
     </div>
 </div>
+</ng-template>
+
+<ng-template #confirmation>
+<div class="wrapper">
+    <div>
+        <span class="notification">Here you will find <span class=" notification special">Your</span> favorites
+            books 🧐</span>
+    </div>
+    <div>
+        <span class="tip">Click <span class="tip special">
+                 <mat-icon>favorite_border</mat-icon>
+            </span> in book details to add book! </span>
+    </div>
+</div>
+</ng-template>
+
+

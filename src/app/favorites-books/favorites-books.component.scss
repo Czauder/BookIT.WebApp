@@ -1,4 +1,4 @@
-@import "../../styles-library/colors-variables.scss";
+@import '../../styles-library/colors-variables.scss';
 
 .container {
   height: 100%;
@@ -57,3 +57,27 @@
   margin: auto 0;
 }
 
+.wrapper {
+  height: 100%;
+  display: grid;
+  place-content: center;
+  text-align: center;
+
+  .notification {
+    font-size: 3em;
+    user-select: none;
+    .special {
+      font-size: 2em;
+      color: $red-primary;
+      user-select: none;
+    }
+  }
+
+  .tip {
+    font-size: 2em;
+
+    mat-icon {
+      color: $red-primary;
+    }
+  }
+}
