@@ -1,8 +1,9 @@
-import { createHostFactory, SpectatorHost } from '@ngneat/spectator';
+import { createHostFactory, SpectatorHost, mockProvider } from '@ngneat/spectator';
 
 import { UserMenuComponent } from './user-menu.component';
 import { MaterialModule } from 'src/app/material/material.module';
 import { MatDialog } from '@angular/material';
+import { AuthenticationService } from 'src/app/user-access/services/authentication.service';
 
 
 describe('UserMenuComponent', () => {
@@ -12,7 +13,7 @@ describe('UserMenuComponent', () => {
     component: UserMenuComponent,
     declarations: [],
     imports: [MaterialModule],
-    providers: [MatDialog]
+    providers: [MatDialog, mockProvider(AuthenticationService)]
   });
 
   beforeEach(() => {

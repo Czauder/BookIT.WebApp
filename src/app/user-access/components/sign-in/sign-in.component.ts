@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { ValidatorsBuilder } from '../../validators/validators-builder';
-import { ToastrService } from 'ngx-toastr';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
 import { AuthenticationService } from '../../services/authentication.service';
-import { first } from 'rxjs/operators';
+import { ValidatorsBuilder } from '../../validators/validators-builder';
 
 @Component({
   selector: 'app-sign-in',

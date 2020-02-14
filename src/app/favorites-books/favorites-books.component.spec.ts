@@ -1,25 +1,24 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { createHostFactory, mockProvider, SpectatorHost } from '@ngneat/spectator';
 
+import { AuthenticationService } from '../user-access/services/authentication.service';
 import { FavoritesBooksComponent } from './favorites-books.component';
+import { FavoritesBooksService } from './services/favorites-books.service';
 
 describe('FavoritesBooksComponent', () => {
-  let component: FavoritesBooksComponent;
-  let fixture: ComponentFixture<FavoritesBooksComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ FavoritesBooksComponent ]
-    })
-    .compileComponents();
-  }));
+  let spectator: SpectatorHost<FavoritesBooksComponent>;
+  const createComponent = createHostFactory({
+    detectChanges: false,
+    component: FavoritesBooksComponent,
+    declarations: [],
+    imports: [],
+    providers: [mockProvider(AuthenticationService), mockProvider(FavoritesBooksService)]
+  });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FavoritesBooksComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    spectator = createComponent<FavoritesBooksComponent>(`<app-favorites-books></app-favorites-books>`);
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(spectator.component).toBeDefined();
   });
 });

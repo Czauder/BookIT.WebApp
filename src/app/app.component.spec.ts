@@ -1,15 +1,16 @@
 import { RouterOutlet } from '@angular/router';
-import { createHostFactory, SpectatorHost } from '@ngneat/spectator';
+import { createHostFactory, SpectatorHost, mockProvider } from '@ngneat/spectator';
 import { MockComponent } from 'ng-mocks';
 
 import { AppComponent } from './app.component';
+import { AuthenticationService } from './user-access/services/authentication.service';
 
 describe('AppComponent', () => {
   let spectator: SpectatorHost<AppComponent>;
   const createComponent = createHostFactory({
     detectChanges: false,
     component: AppComponent,
-    declarations: [MockComponent(RouterOutlet)]
+    declarations: [MockComponent(RouterOutlet), mockProvider(AuthenticationService)]
   });
 
   beforeEach(() => (spectator = createComponent(`<app-root></app-root>`)));

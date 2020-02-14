@@ -1,6 +1,7 @@
-import { createHostComponentFactory, SpectatorWithHost, SpectatorHost, createHostFactory } from '@ngneat/spectator';
+import { createHostComponentFactory, SpectatorWithHost, SpectatorHost, createHostFactory, mockProvider } from '@ngneat/spectator';
 
 import { LayoutShellComponent } from './layout-shell.component';
+import { AuthenticationService } from '../user-access/services/authentication.service';
 
 describe('LayoutShellComponent', () => {
   let spectator: SpectatorHost<LayoutShellComponent>;
@@ -9,7 +10,7 @@ describe('LayoutShellComponent', () => {
     component: LayoutShellComponent,
     declarations: [],
     imports: [],
-    providers: []
+    providers: [mockProvider(AuthenticationService)]
   });
 
   beforeEach(() => {
