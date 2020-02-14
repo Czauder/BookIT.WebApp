@@ -26,7 +26,7 @@ export class SignInComponent implements OnInit {
     private authenticationService: AuthenticationService,
     private toastr: ToastrService
   ) {
-    if (this.authenticationService.currentUserValue) {
+    if (this.authenticationService.currentUserValue()) {
       this.router.navigate(['/']);
     }
   }

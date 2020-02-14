@@ -14,7 +14,7 @@ export class UserMenuComponent implements OnInit {
   constructor(public dialog: MatDialog, private authenticationsService: AuthenticationService) {}
 
   public ngOnInit(): void {
-    if (this.authenticationsService.currentUserValue !== null) {
+    if (this.authenticationsService.currentUserValue() !== null) {
       console.log('zalgowany');
       this.isUser = true;
     } else {

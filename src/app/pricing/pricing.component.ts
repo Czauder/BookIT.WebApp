@@ -23,7 +23,7 @@ export class PricingComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
-    if (this.authenticationsService.currentUserValue !== null) {
+    if (this.authenticationsService.currentUserValue() !== null) {
       this.isUser = true;
     } else {
       this.isUser = false;

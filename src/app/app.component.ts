@@ -29,6 +29,8 @@ export class AppComponent implements OnInit {
       })
     );
 
-    this.authenticationService.setToken(localStorage.getItem('currentUser'));
+    if (localStorage.getItem('currentUser')) {
+      this.authenticationService.setToken(localStorage.getItem('currentUser'));
+    }
   }
 }

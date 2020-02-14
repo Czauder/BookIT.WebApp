@@ -12,7 +12,7 @@ export class MainMenuComponent implements OnInit {
   constructor(private authenticationsService: AuthenticationService) {}
 
   public ngOnInit(): void {
-    if (this.authenticationsService.currentUserValue !== null) {
+    if (this.authenticationsService.currentUserValue() !== null) {
       console.log('zalgowany');
       this.isUser = true;
     } else {
