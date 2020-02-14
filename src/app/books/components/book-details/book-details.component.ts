@@ -42,7 +42,7 @@ export class BookDetailsComponent implements OnInit {
   public addToFavorites(): void {
     if (!this.isFavorite) {
       this.favoritesBooksService
-        .postFavoritesBooks(this.authenticationsService.currentUserValue.customerId, this.book.id)
+        .postFavoritesBooks(this.authenticationsService.currentUserValue().customerId, this.book.id)
         .subscribe();
       this.isFavorite = true;
       this.showToaster();
@@ -56,7 +56,7 @@ export class BookDetailsComponent implements OnInit {
   public removeFromFavorites(): void {
     console.log((this.isFavorite = false));
     this.favoritesBooksService
-      .deleteFavoritesBooks(this.authenticationsService.currentUserValue.customerId, this.book.id)
+      .deleteFavoritesBooks(this.authenticationsService.currentUserValue().customerId, this.book.id)
       .subscribe(a => {
         console.log(a);
       });

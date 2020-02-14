@@ -15,7 +15,7 @@ export class DialogAccountComponent implements OnInit {
   constructor(private authenticationService: AuthenticationService) {}
 
   ngOnInit() {
-    this.user = this.authenticationService.currentUserValue;
+    this.user = this.authenticationService.currentUserValue();
     console.log(this.user);
   }
 }

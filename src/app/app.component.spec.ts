@@ -1,8 +1,6 @@
-import { RouterOutlet } from '@angular/router';
 import { createHostFactory, SpectatorHost, mockProvider } from '@ngneat/spectator';
-import { MockComponent } from 'ng-mocks';
-
 import { AppComponent } from './app.component';
+import { ToastrService } from 'ngx-toastr';
 import { AuthenticationService } from './user-access/services/authentication.service';
 
 describe('AppComponent', () => {
@@ -10,12 +8,16 @@ describe('AppComponent', () => {
   const createComponent = createHostFactory({
     detectChanges: false,
     component: AppComponent,
-    declarations: [mockProvider(RouterOutlet), mockProvider(AuthenticationService), mockProvider(AuthenticationService)]
+    declarations: [],
+    imports: [],
+    providers: [mockProvider(ToastrService), mockProvider(AuthenticationService)]
   });
 
-  beforeEach(() => (spectator = createComponent(`<app-root></app-root>`)));
+  beforeEach(() => {
+    spectator = createComponent<AppComponent>(`<app-root></app-root>`);
+  });
 
-  it('should create the app', () => {
-    expect(spectator.component).toBeTruthy();
+  it('should create', () => {
+    expect(spectator.component).toBeDefined();
   });
 });

@@ -18,7 +18,7 @@ export class FavoritesBooksLibraryComponent implements OnInit {
 
  public ngOnInit(): void {
     this.favoritesBookService
-      .getFavoritesBooks(this.authenticationService.currentUserValue.customerId)
+      .getFavoritesBooks(this.authenticationService.currentUserValue().customerId)
       .subscribe(favoritesBooks => {
         this.favoritesBooks = favoritesBooks;
         console.log(this.favoritesBooks);

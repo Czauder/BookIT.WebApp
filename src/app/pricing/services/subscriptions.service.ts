@@ -16,7 +16,7 @@ export class SubscriptionsService {
   constructor(private http: HttpClient, private authenticationsService: AuthenticationService) {}
 
   public addSubscriptions(subscriptionType: SubscriptionType): Observable<any> {
-    this.user = this.authenticationsService.currentUserValue;
+    this.user = this.authenticationsService.currentUserValue();
     return this.http.post<any>(
       `${environment.baseURL}/api/subscriptions`,
       {

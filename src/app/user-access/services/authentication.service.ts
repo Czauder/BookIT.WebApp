@@ -20,7 +20,7 @@ export class AuthenticationService {
     this.currentUserSubject = new BehaviorSubject<User>(null);
   }
 
-  public get currentUserValue(): User {
+  public currentUserValue(): User {
     return this.currentUserSubject.value;
   }
 
