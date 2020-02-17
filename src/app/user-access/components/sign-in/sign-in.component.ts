@@ -70,12 +70,10 @@ export class SignInComponent implements OnInit {
       this.authenticationService.login(this.loginForm.value).
       subscribe(
         response => {
-          console.log(response);
           this.router.navigate(['/books']);
         },
         error => {
           this.errors = error;
-          console.log(this.errors);
           this.showToaster();
         }
       );

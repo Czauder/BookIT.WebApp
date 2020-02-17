@@ -21,7 +21,6 @@ export class FavoritesBooksLibraryComponent implements OnInit {
       .getFavoritesBooks(this.authenticationService.currentUserValue().customerId)
       .subscribe(favoritesBooks => {
         this.favoritesBooks = favoritesBooks;
-        console.log(this.favoritesBooks);
       } );
   }
 }

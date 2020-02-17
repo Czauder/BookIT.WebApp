@@ -16,19 +16,16 @@ export class SubscriptionsService {
   constructor(private http: HttpClient, private authenticationsService: AuthenticationService) {}
 
   public getSubscriptionByCustomerId(): Observable<any> {
-    console.log(this.authenticationsService.currentUserValue().customerId);
-    
-    return this.http.get(`${environment.baseURL}/api/subscriptions/customer/${this.authenticationsService.currentUserValue().customerId}`);
+    return this.http.get(
+      `${environment.baseURL}/api/subscriptions/customer/${this.authenticationsService.currentUserValue().customerId}`
+    );
   }
 
   public addSubscriptions(subscriptionType: SubscriptionType): Observable<any> {
     this.user = this.authenticationsService.currentUserValue();
-    return this.http.post<any>(
-      `${environment.baseURL}/api/subscriptions`,
-      {
-        customerId: this.user.customerId,
-        subscriptionType
-      },
-    );
+    return this.http.post<any>(`${environment.baseURL}/api/subscriptions`, {
+      customerId: this.user.customerId,
+      subscriptionType
+    });
   }
 }

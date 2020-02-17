@@ -20,7 +20,6 @@ export class FavoritesBooksComponent implements OnInit {
     this.favoritesBooksService
       .getFavoritesBooks(this.authenticationService.currentUserValue().customerId)
       .subscribe(favoritesBooks => {
-        console.log(favoritesBooks.length);
         this.isAddedBook = favoritesBooks;
       });
   }

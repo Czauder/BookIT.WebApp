@@ -15,10 +15,8 @@ export class UserMenuComponent implements OnInit {
 
   public ngOnInit(): void {
     if (this.authenticationsService.currentUserValue() !== null) {
-      console.log('zalgowany');
       this.isUser = true;
     } else {
-      console.log('nie zalo');
       this.isUser = false;
     }
   }

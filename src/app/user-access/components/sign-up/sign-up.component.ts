@@ -81,12 +81,10 @@ export class SignUpComponent implements OnInit {
     if (this.registerForm.valid) {
       this.authenticationService.registerCustomer(this.registerForm.value).subscribe(
         response => {
-          console.log(response);
           this.showToasterSuccess();
         },
         error => {
           this.errors = error;
-          console.log(this.errors);
           this.showToaster();
         }
       );

@@ -15,8 +15,6 @@ export class AuthenticationService {
   public myUser: User;
 
   constructor(private http: HttpClient, private jwtDecoderService: JwtDecoderService) {
-    console.log("TOKEN " + localStorage.getItem('currentUser'));
-
     this.currentUserSubject = new BehaviorSubject<User>(null);
   }
 
@@ -36,7 +34,6 @@ export class AuthenticationService {
   }
 
   public login(loginForm: any) {
-    console.log(loginForm);
     return this.http.post<LoginResult>(`${environment.baseURL}/api/auth/signin`, loginForm).pipe(
       tap(user => {
         this.setToken(user.token);
@@ -53,7 +50,6 @@ export class AuthenticationService {
   public setToken(token) {
     localStorage.setItem('currentUser', token);
     let usr = this.jwtDecoderService.getDecodedAccessToken(token);
-    console.log("USR" + usr)
     this.currentUserSubject.next(usr);
   }
 }

@@ -45,12 +45,9 @@ export class PricingComponent implements OnInit {
             this.showToaster(false);
           }
           this.responseMessage = response.message;
-          console.log(this.responseMessage);
-          console.log(response);
           this.showToaster(true);
         },
         error => {
-          console.log(this.responseMessageError);
           console.log(error);
 
           this.responseMessageError = error.error.Message;

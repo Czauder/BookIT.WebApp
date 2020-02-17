@@ -27,7 +27,6 @@ export class BookDetailsComponent implements OnInit {
 
   public ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      console.log(params.get('id'));
       this.bookBackendService.getBook(params.get('id')).subscribe(book => {
         console.log(book);
         this.book = book;
@@ -63,7 +62,6 @@ export class BookDetailsComponent implements OnInit {
   }
 
   public removeFromFavorites(): void {
-    console.log((this.isFavorite = false));
     this.favoritesBooksService
       .deleteFavoritesBooks(this.authenticationsService.currentUserValue().customerId, this.book.id)
       .subscribe(a => {
@@ -89,8 +87,6 @@ export class BookDetailsComponent implements OnInit {
     if (this.authenticationsService.currentUserValue().role === 'Subscriber') {
       this.isSubscriber = true;
     } else {
-      console.log('false');
-
       this.isSubscriber = false;
     }
   }

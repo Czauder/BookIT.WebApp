@@ -10,7 +10,6 @@ export class JwtDecoderService {
 
   public getDecodedAccessToken(token: string): User {
     try {
-      console.log(jwt_decode(token));
       const decodedToken = jwt_decode(token);
       const usr = new User(decodedToken.nameid, decodedToken.email, decodedToken.role);
       return usr;
