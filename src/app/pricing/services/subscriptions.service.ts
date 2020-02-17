@@ -16,6 +16,8 @@ export class SubscriptionsService {
   constructor(private http: HttpClient, private authenticationsService: AuthenticationService) {}
 
   public getSubscriptionByCustomerId(): Observable<any> {
+    console.log(this.authenticationsService.currentUserValue().customerId);
+    
     return this.http.get(`${environment.baseURL}/api/subscriptions/customer/${this.authenticationsService.currentUserValue().customerId}`);
   }
 

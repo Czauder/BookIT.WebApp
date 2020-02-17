@@ -4,6 +4,7 @@ import { BooksBackendService } from '../../services/books-backend.service';
 import { ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from 'src/app/user-access/services/authentication.service';
 import { FavoritesBooksService } from 'src/app/favorites-books/services/favorites-books.service';
+import { SubscriptionsService } from 'src/app/pricing/services/subscriptions.service';
 
 @Component({
   selector: 'app-book-details',
@@ -13,14 +14,15 @@ import { FavoritesBooksService } from 'src/app/favorites-books/services/favorite
 export class BookDetailsComponent implements OnInit {
   public isFavorite = false;
   public book: any;
-  public isUser: boolean;
+  public isSubscriber: boolean;
 
   constructor(
     private toastr: ToastrService,
     private bookBackendService: BooksBackendService,
     private route: ActivatedRoute,
     private authenticationsService: AuthenticationService,
-    private favoritesBooksService: FavoritesBooksService
+    private favoritesBooksService: FavoritesBooksService,
+    private subscriptionsService: SubscriptionsService
   ) {}
 
   public ngOnInit(): void {
@@ -43,11 +45,7 @@ export class BookDetailsComponent implements OnInit {
         });
     });
 
-    if (this.authenticationsService.currentUserValue() !== null) {
-      this.isUser = true;
-    } else {
-      this.isUser = false;
-    }
+    this.checkSubscriber();
   }
 
   public addToFavorites(): void {
@@ -84,6 +82,16 @@ export class BookDetailsComponent implements OnInit {
         progressBar: true,
         positionClass: 'toast-bottom-full-width'
       });
+    }
+  }
+
+  public checkSubscriber(): void {
+    if (this.authenticationsService.currentUserValue().role === 'Subscriber') {
+      this.isSubscriber = true;
+    } else {
+      console.log('false');
+
+      this.isSubscriber = false;
     }
   }
 }
