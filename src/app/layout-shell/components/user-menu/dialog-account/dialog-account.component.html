@@ -7,7 +7,8 @@
     <p>Email: <span>{{user.email}}</span></p>
     <mat-divider>
     </mat-divider>
-    <p>Subscription: <span>none </span></p>
+    <p>Subscription:
+         <span *ngIf="subscriptionType === 'none'">none</span>
 </div>
 <div mat-dialog-actions align="end">
     <button mat-button mat-flat-button color="accent" mat-dialog-close>Ok</button>

@@ -82,6 +82,7 @@ export class SignUpComponent implements OnInit {
       this.authenticationService.registerCustomer(this.registerForm.value).subscribe(
         response => {
           console.log(response);
+          this.showToasterSuccess();
         },
         error => {
           this.errors = error;
@@ -95,6 +96,13 @@ export class SignUpComponent implements OnInit {
 
   public showToaster(): void {
     this.toastr.error(`It's something! \uD83D\uDE22 Try again!`, '', {
+      progressBar: true,
+      positionClass: 'toast-bottom-full-width'
+    });
+  }
+
+  public showToasterSuccess(): void {
+    this.toastr.success(`Register success 😍🥰`, '', {
       progressBar: true,
       positionClass: 'toast-bottom-full-width'
     });

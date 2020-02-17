@@ -19,7 +19,7 @@
             </ul>
         </div>
         <div class="card-action">
-            <button type="button" [disabled]="!isUser" >Get Basic</button>
+            <button type="button" [disabled]="!isUser" (click)="addYearSubscription()">Get Basic</button>
         </div>
     </div>
     <div class="card card2 popular">
@@ -68,7 +68,7 @@
             </ul>
         </div>
         <div class="card-action">
-            <button type="button" [disabled]="!isUser">
+            <button type="button" [disabled]="!isUser" (click)="addYearSubscription()">
                 Get Premium
             </button>
         </div>
