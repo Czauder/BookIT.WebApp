@@ -30,6 +30,17 @@ export class BookDetailsComponent implements OnInit {
         console.log(book);
         this.book = book;
       });
+
+      this.favoritesBooksService
+        .getFavoritesBooks(this.authenticationsService.currentUserValue().customerId)
+        .subscribe(fav => {
+          const exists = fav.some(e => e.id === this.book.id);
+          if (fav && exists) {
+            this.isFavorite = true;
+          } else {
+            this.isFavorite = false;
+          }
+        });
     });
 
     if (this.authenticationsService.currentUserValue() !== null) {

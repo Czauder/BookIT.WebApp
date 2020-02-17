@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class FavoritesBooksService {
   constructor(private http: HttpClient) {}
 
-  public getFavoritesBooks(customerId): Observable<any> {
+  public getFavoritesBooks(customerId: string): Observable<any> {
     return this.http.get<any>(`${environment.baseURL}/api/favorites/${customerId}`);
   }
 
