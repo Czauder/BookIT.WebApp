@@ -33,5 +33,7 @@ export class AppComponent implements OnInit {
     if (localStorage.getItem('currentUser')) {
       this.authenticationService.setToken(localStorage.getItem('currentUser'));
     }
+    console.log("halo")
   }
+  
 }
