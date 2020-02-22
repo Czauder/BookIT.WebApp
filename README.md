@@ -6,3 +6,5 @@
 <p align="center">
     Angular 9 + Angular CLI App for learning pupruse :heart:
 </p>
+
+![github2](https://user-images.githubusercontent.com/44218667/75094967-40db8000-5590-11ea-9aac-e8566c5a9c07.gif)
