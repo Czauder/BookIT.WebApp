@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
-import { BooksBackendService } from '../../services/books-backend.service';
 import { ActivatedRoute } from '@angular/router';
-import { AuthenticationService } from 'src/app/user-access/services/authentication.service';
+import { ToastrService } from 'ngx-toastr';
 import { FavoritesBooksService } from 'src/app/favorites-books/services/favorites-books.service';
 import { SubscriptionsService } from 'src/app/pricing/services/subscriptions.service';
+import { AuthenticationService } from 'src/app/user-access/services/authentication.service';
+
+import { BooksBackendService } from '../../services/books-backend.service';
 
 @Component({
   selector: 'app-book-details',
@@ -28,7 +29,6 @@ export class BookDetailsComponent implements OnInit {
   public ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.bookBackendService.getBook(params.get('id')).subscribe(book => {
-        console.log(book);
         this.book = book;
       });
 
@@ -64,9 +64,7 @@ export class BookDetailsComponent implements OnInit {
   public removeFromFavorites(): void {
     this.favoritesBooksService
       .deleteFavoritesBooks(this.authenticationsService.currentUserValue().customerId, this.book.id)
-      .subscribe(a => {
-        console.log(a);
-      });
+      .subscribe(a => a);
   }
 
   public showToaster(): void {

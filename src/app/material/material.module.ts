@@ -11,7 +11,7 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatDialogModule,
-  MatTooltipModule,
+  MatTooltipModule
 } from '@angular/material';
 
 const material = [

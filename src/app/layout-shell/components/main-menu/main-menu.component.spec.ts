@@ -1,7 +1,7 @@
-import { createHostFactory, SpectatorHost, mockProvider } from '@ngneat/spectator';
+import { createHostFactory, mockProvider, SpectatorHost } from '@ngneat/spectator';
+import { AuthenticationService } from 'src/app/user-access/services/authentication.service';
 
 import { MainMenuComponent } from './main-menu.component';
-import { AuthenticationService } from 'src/app/user-access/services/authentication.service';
 
 describe('MainMenuComponent', () => {
   let spectator: SpectatorHost<MainMenuComponent>;

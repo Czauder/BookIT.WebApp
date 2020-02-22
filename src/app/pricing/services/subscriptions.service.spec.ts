@@ -1,8 +1,8 @@
-import { createHttpFactory, SpectatorHttp, HttpMethod, mockProvider } from '@ngneat/spectator';
-
-import { SubscriptionsService } from './subscriptions.service';
-import { SubscriptionType } from '../subscription-type.enum';
+import { createHttpFactory, HttpMethod, mockProvider, SpectatorHttp } from '@ngneat/spectator';
 import { AuthenticationService } from 'src/app/user-access/services/authentication.service';
+
+import { SubscriptionType } from '../subscription-type.enum';
+import { SubscriptionsService } from './subscriptions.service';
 
 describe('Subscriptions service testing', () => {
   let spectator: SpectatorHttp<SubscriptionsService>;
@@ -34,10 +34,10 @@ describe('Subscriptions service testing', () => {
   });
 
   it('should added subscriptions', () => {
-    const auth = spectator.get(AuthenticationService);
+    spectator.get(AuthenticationService);
 
     spectator.service.addSubscriptions(SubscriptionType.Year).subscribe();
 
-    const req = spectator.expectOne('http://localhost:5050/api/subscriptions', HttpMethod.POST);
+    spectator.expectOne('http://localhost:5050/api/subscriptions', HttpMethod.POST);
   });
 });

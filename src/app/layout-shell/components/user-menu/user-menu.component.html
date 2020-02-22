@@ -1,25 +1,22 @@
-<ng-container *ngIf="isUser; then userIn; else userOut">
-</ng-container>
+<ng-container *ngIf="isUser; then userIn; else userOut"> </ng-container>
 
 <ng-template #userIn>
-    <div class="wrapper">
-        <app-notifications></app-notifications>
-        <mat-menu #appMenu="matMenu">
-            <button mat-menu-item (click)="openDialogAccount()">Account</button>
-            <button mat-menu-item>Settings</button>
-            <button mat-menu-item (click)="openDialogLogout()">Log out</button>
-        </mat-menu>
-        <button mat-icon-button>
-            <mat-icon [matMenuTriggerFor]="appMenu">account_circle</mat-icon>
-        </button>
-    </div>
+  <div class="wrapper">
+    <app-notifications></app-notifications>
+    <mat-menu #appMenu="matMenu">
+      <button mat-menu-item (click)="openDialogAccount()">Account</button>
+      <button mat-menu-item>Settings</button>
+      <button mat-menu-item (click)="openDialogLogout()">Log out</button>
+    </mat-menu>
+    <button mat-icon-button>
+      <mat-icon [matMenuTriggerFor]="appMenu">account_circle</mat-icon>
+    </button>
+  </div>
 </ng-template>
 
-
-
 <ng-template #userOut>
-<div class="wrapper-btn">
+  <div class="wrapper-btn">
     <button mat-stroked-button color="warn" [routerLink]="['/access/signup']">Create Account</button>
-    <button  mat-stroked-button color="warn" [routerLink]="['/access/signin']">Login</button>
-</div>
+    <button mat-stroked-button color="warn" [routerLink]="['/access/signin']">Login</button>
+  </div>
 </ng-template>

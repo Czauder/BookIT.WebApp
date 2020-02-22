@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 import { AuthenticationService } from '../../services/authentication.service';
 import { ValidatorsBuilder } from '../../validators/validators-builder';
-import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-sign-up',
@@ -15,7 +15,7 @@ export class SignUpComponent implements OnInit {
   public showPwd = false;
   public showConfirm = false;
   public registerForm: FormGroup;
-  errors: any;
+  public errors: any;
 
   constructor(
     private formBuilder: FormBuilder,

@@ -1,0 +1,6 @@
+{
+  "hooks": {
+    "pre-commit": "run-s format:fix-staged",
+    "pre-push": "run-s lint format:check"
+  }
+}

@@ -1,5 +1,5 @@
-@import "./styles-library/colors-variables.scss";
-@import "./styles-library/fonts-variables.scss";
+@import './styles-library/colors-variables.scss';
+@import './styles-library/fonts-variables.scss';
 
 html,
 body {
@@ -8,7 +8,7 @@ body {
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
   background-color: $primary-bg-color;
 }
 
@@ -58,11 +58,5 @@ h3 {
 ::-webkit-scrollbar-thumb {
   background-color: $red-primary;
   border-radius: 1em;
-  background-image: -webkit-linear-gradient(
-    90deg,
-    transparent,
-    rgba(0, 0, 0, 0.5) 50%,
-    transparent,
-    transparent
-  );
+  background-image: -webkit-linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.5) 50%, transparent, transparent);
 }

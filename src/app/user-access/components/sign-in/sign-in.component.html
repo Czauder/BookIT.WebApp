@@ -5,20 +5,21 @@
     <mat-card-content>
       <mat-form-field appearance="fill" color="accent">
         <mat-label>Email</mat-label>
-        <input matInput formControlName="email">
-      </mat-form-field><br>
+        <input matInput formControlName="email" /> </mat-form-field
+      ><br />
       <mat-form-field appearance="fill" color="accent">
         <mat-label>Password</mat-label>
-        <input matInput [type]="showPwd ? 'text' : 'password'" matInput formControlName="password">
-        <mat-icon matSuffix class="eye-icon" (click)="showPassword()">{{showPwd ? 'visibility' : 'visibility_off'}}
+        <input matInput [type]="showPwd ? 'text' : 'password'" matInput formControlName="password" />
+        <mat-icon matSuffix class="eye-icon" (click)="showPassword()"
+          >{{ showPwd ? 'visibility' : 'visibility_off' }}
         </mat-icon>
       </mat-form-field>
     </mat-card-content>
     <mat-card-actions>
       <button mat-flat-button color="accent" [routerLink]="['/access/forgotpassword']">Forgot Password?</button>
-      <button mat-raised-button color="warn" mat-button [routerLink]="['/access/signup']"
-        routerLinkActive="active">Create
-        Account</button>
+      <button mat-raised-button color="warn" mat-button [routerLink]="['/access/signup']" routerLinkActive="active">
+        Create Account
+      </button>
       <button mat-button mat-raised-button color="warn" [disabled]="!loginForm.valid" (click)="onSubmit()">Next</button>
     </mat-card-actions>
   </form>

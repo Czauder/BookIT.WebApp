@@ -1,12 +1,12 @@
-import { createHostFactory, SpectatorHost, mockProvider } from '@ngneat/spectator';
-
-import { SignUpComponent } from './sign-up.component';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { ValidatorsBuilder } from '../../validators/validators-builder';
-import { MaterialModule } from 'src/app/material/material.module';
-import { AuthenticationService } from '../../services/authentication.service';
 import { Router } from '@angular/router';
+import { createHostFactory, mockProvider, SpectatorHost } from '@ngneat/spectator';
 import { ToastrService } from 'ngx-toastr';
+import { MaterialModule } from 'src/app/material/material.module';
+
+import { AuthenticationService } from '../../services/authentication.service';
+import { ValidatorsBuilder } from '../../validators/validators-builder';
+import { SignUpComponent } from './sign-up.component';
 
 describe('SignUpComponent', () => {
   let spectator: SpectatorHost<SignUpComponent>;
@@ -15,7 +15,12 @@ describe('SignUpComponent', () => {
     component: SignUpComponent,
     declarations: [],
     imports: [MaterialModule],
-    providers: [mockProvider(FormBuilder), mockProvider(AuthenticationService), mockProvider(Router), mockProvider(ToastrService)]
+    providers: [
+      mockProvider(FormBuilder),
+      mockProvider(AuthenticationService),
+      mockProvider(Router),
+      mockProvider(ToastrService)
+    ]
   });
 
   beforeEach(() => {

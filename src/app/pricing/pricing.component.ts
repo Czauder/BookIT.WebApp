@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { tap } from 'rxjs/operators';
 
+import { AuthenticationService } from '../user-access/services/authentication.service';
 import { SubscriptionsService } from './services/subscriptions.service';
 import { SubscriptionType } from './subscription-type.enum';
-import { AuthenticationService } from '../user-access/services/authentication.service';
-import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-pricing',
@@ -48,8 +48,6 @@ export class PricingComponent implements OnInit {
           this.showToaster(true);
         },
         error => {
-          console.log(error);
-
           this.responseMessageError = error.error.Message;
           this.showToaster(false);
         }
@@ -63,6 +61,7 @@ export class PricingComponent implements OnInit {
         positionClass: 'toast-bottom-full-width'
       });
       this.responseMessage = null;
+      // tslint:disable-next-line: no-collapsible-if
     } else {
       if (this.responseMessageError === 'Customer already have active subscription.') {
         this.toastr.info('You already have subscriptions! 🤩🤩', '', {

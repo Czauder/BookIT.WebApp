@@ -1,11 +1,11 @@
-import { createHostFactory, SpectatorHost, mockProvider } from '@ngneat/spectator';
-
-import { SignInComponent } from './sign-in.component';
-import { ValidatorsBuilder } from '../../validators/validators-builder';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
-import { AuthenticationService } from '../../services/authentication.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { createHostFactory, mockProvider, SpectatorHost } from '@ngneat/spectator';
 import { ToastrService } from 'ngx-toastr';
+
+import { AuthenticationService } from '../../services/authentication.service';
+import { ValidatorsBuilder } from '../../validators/validators-builder';
+import { SignInComponent } from './sign-in.component';
 
 describe('SignInComponent', () => {
   let spectator: SpectatorHost<SignInComponent>;

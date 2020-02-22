@@ -1,10 +1,9 @@
-import { createHostFactory, SpectatorHost, mockProvider } from '@ngneat/spectator';
-
-import { UserMenuComponent } from './user-menu.component';
-import { MaterialModule } from 'src/app/material/material.module';
 import { MatDialog } from '@angular/material';
+import { createHostFactory, mockProvider, SpectatorHost } from '@ngneat/spectator';
+import { MaterialModule } from 'src/app/material/material.module';
 import { AuthenticationService } from 'src/app/user-access/services/authentication.service';
 
+import { UserMenuComponent } from './user-menu.component';
 
 describe('UserMenuComponent', () => {
   let spectator: SpectatorHost<UserMenuComponent>;

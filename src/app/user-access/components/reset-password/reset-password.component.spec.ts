@@ -1,8 +1,8 @@
-import { createHostFactory, SpectatorHost, mockProvider } from '@ngneat/spectator';
-
-import { ResetPasswordComponent } from './reset-password.component';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { createHostFactory, mockProvider, SpectatorHost } from '@ngneat/spectator';
+
 import { ValidatorsBuilder } from '../../validators/validators-builder';
+import { ResetPasswordComponent } from './reset-password.component';
 
 describe('ResetPasswordComponent', () => {
   let spectator: SpectatorHost<ResetPasswordComponent>;
@@ -19,10 +19,10 @@ describe('ResetPasswordComponent', () => {
 
     const validationBuilder = new ValidatorsBuilder();
     const passwordValidator = validationBuilder
-    .setPassword()
-    .setMinLength(5)
-    .setRequired()
-    .build();
+      .setPassword()
+      .setMinLength(5)
+      .setRequired()
+      .build();
     spectator.component.resetPasswordForm = new FormBuilder().group({
       password: new FormControl(null, Validators.compose(passwordValidator)),
       confirm: new FormControl(null, Validators.compose(passwordValidator))

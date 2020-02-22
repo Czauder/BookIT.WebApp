@@ -3,7 +3,6 @@ import { createHostFactory, SpectatorHost, mockProvider } from '@ngneat/spectato
 import { BooksLibraryComponent } from './books-library.component';
 import { BooksBackendService } from '../../services/books-backend.service';
 
-
 describe('BooksLibraryComponent', () => {
   let spectator: SpectatorHost<BooksLibraryComponent>;
   const createComponent = createHostFactory({

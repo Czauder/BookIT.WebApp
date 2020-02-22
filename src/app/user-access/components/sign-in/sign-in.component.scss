@@ -2,15 +2,14 @@
 
 mat-form-field {
   @include mat-form-field-style;
-  }
+}
 
-  
 mat-icon {
   cursor: pointer;
 }
 
 @media (max-width: 800px) {
   button {
-   margin: 0.5em
+    margin: 0.5em;
   }
 }

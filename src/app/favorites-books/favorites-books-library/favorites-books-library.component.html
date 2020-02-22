@@ -1,15 +1,15 @@
 <div class="wrapper">
-    <ng-container *ngFor="let favoriteBook of favoritesBooks; let i=index">
-      <div [ngClass]="'book' + (i+1)" class="item01" [routerLink]="['/books/details', favoriteBook.id]">
-      <div class="img" [ngStyle]="{'background-image':'url('+favoriteBook.imageUrl+')'}"></div>
-        <div class="card">
-          <h3>{{favoriteBook.name}}</h3>
-          <div class="info">
-            <div class="spec">FULLSTACK</div>
-            <div class="dur">200 pages</div>
-          </div>
-          <div class="tags"> <span>JavaScript</span><span>Functional Programing</span><span>ES6</span></div>
+  <ng-container *ngFor="let favoriteBook of favoritesBooks; let i = index">
+    <div [ngClass]="'book' + (i + 1)" class="item01" [routerLink]="['/books/details', favoriteBook.id]">
+      <div class="img" [ngStyle]="{ 'background-image': 'url(' + favoriteBook.imageUrl + ')' }"></div>
+      <div class="card">
+        <h3>{{ favoriteBook.name }}</h3>
+        <div class="info">
+          <div class="spec">FULLSTACK</div>
+          <div class="dur">200 pages</div>
         </div>
+        <div class="tags"><span>JavaScript</span><span>Functional Programing</span><span>ES6</span></div>
       </div>
-    </ng-container>
-  </div>
+    </div>
+  </ng-container>
+</div>

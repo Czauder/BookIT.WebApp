@@ -18,7 +18,7 @@ export class DialogAccountComponent implements OnInit {
     private subscriptionsService: SubscriptionsService
   ) {}
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.user = this.authenticationService.currentUserValue();
     this.subscriptionsService.getSubscriptionByCustomerId().subscribe(sub => {
       if (sub) {

@@ -1,8 +1,9 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PricingComponent } from './pricing.component';
-import { DialogPricingComponent } from './dialog-pricing/dialog-pricing.component';
+import { NgModule } from '@angular/core';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
+
+import { DialogPricingComponent } from './dialog-pricing/dialog-pricing.component';
+import { PricingComponent } from './pricing.component';
 
 @NgModule({
   declarations: [PricingComponent, DialogPricingComponent],

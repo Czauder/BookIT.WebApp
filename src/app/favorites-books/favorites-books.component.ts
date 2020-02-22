@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../user-access/services/authentication.service';
+
 import { Book } from '../books/models/book.model';
+import { AuthenticationService } from '../user-access/services/authentication.service';
 import { FavoritesBooksService } from './services/favorites-books.service';
 
 @Component({

@@ -1,35 +1,43 @@
 <div class="wrapper">
-    <div class="img">
-        <img src={{book.imageUrl}}>
+  <div class="img">
+    <img src="{{ book.imageUrl }}" />
+  </div>
+  <div class="details">
+    <div class="title">
+      <h1>{{ book.name }}</h1>
+      <button
+        *ngIf="isSubscriber"
+        mat-icon-button
+        color="warn"
+        aria-label="favorite"
+        (click)="addToFavorites()"
+        matTooltip="Add to Your favorite Books!"
+        matTooltipPosition="right"
+      >
+        <mat-icon>{{ isFavorite ? 'favorite' : 'favorite_border' }}</mat-icon>
+      </button>
     </div>
-    <div class="details">
-        <div class="title">
-            <h1>{{book.name}}</h1>
-            <button *ngIf="isSubscriber" mat-icon-button color="warn" aria-label="favorite" (click)="addToFavorites()"
-                matTooltip="Add to Your favorite Books!" matTooltipPosition="right">
-                <mat-icon>{{isFavorite ? 'favorite' : 'favorite_border'}}</mat-icon>
-            </button>
-        </div>
-        <div class="tags">
-            <div class="tags-info">
-                <span>OOP</span> <span>Beginners</span><span>Programing</span></div>
-        </div>
-        <div class="author">
-            <h3>Marijn Haverbeke</h3>
-        </div>
-        <div class="pages">
-            <p>Pages: <span>{{book.pageCount}}</span></p>
-        </div>
-        <div class="descriptions">
-            <p>{{book.description}}</p>
-        </div>
+    <div class="tags">
+      <div class="tags-info"><span>OOP</span> <span>Beginners</span><span>Programing</span></div>
     </div>
+    <div class="author">
+      <h3>Marijn Haverbeke</h3>
+    </div>
+    <div class="pages">
+      <p>
+        Pages: <span>{{ book.pageCount }}</span>
+      </p>
+    </div>
+    <div class="descriptions">
+      <p>{{ book.description }}</p>
+    </div>
+  </div>
 
-    <div class="buttons">
-        <button mat-button mat-raised-button color="warn">Open</button>
-        <button mat-button mat-raised-button color="accent" [routerLink]="['/books']">Back</button>
-    </div>
-    <div class="pricing">
-        <h3>$ 15.99</h3>
-    </div>
+  <div class="buttons">
+    <button mat-button mat-raised-button color="warn">Open</button>
+    <button mat-button mat-raised-button color="accent" [routerLink]="['/books']">Back</button>
+  </div>
+  <div class="pricing">
+    <h3>$ 15.99</h3>
+  </div>
 </div>

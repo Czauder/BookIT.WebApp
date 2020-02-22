@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+
 import { ValidatorsBuilder } from '../../validators/validators-builder';
 
 @Component({
@@ -31,7 +32,6 @@ export class ResetPasswordComponent implements OnInit {
 
   public showNotification(): void {
     this.isClickedButton = true;
-    console.log(this.isClickedButton);
   }
 
   public showPassword(): void {

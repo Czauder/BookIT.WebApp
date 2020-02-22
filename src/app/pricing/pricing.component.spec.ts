@@ -1,9 +1,9 @@
-import { createHostFactory, SpectatorHost, mockProvider } from '@ngneat/spectator';
+import { createHostFactory, mockProvider, SpectatorHost } from '@ngneat/spectator';
+import { ToastrService } from 'ngx-toastr';
 
+import { AuthenticationService } from '../user-access/services/authentication.service';
 import { PricingComponent } from './pricing.component';
 import { SubscriptionsService } from './services/subscriptions.service';
-import { ToastrService } from 'ngx-toastr';
-import { AuthenticationService } from '../user-access/services/authentication.service';
 
 describe('PricingComponent', () => {
   let spectator: SpectatorHost<PricingComponent>;

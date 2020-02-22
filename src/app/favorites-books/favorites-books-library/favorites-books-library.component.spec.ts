@@ -11,14 +11,13 @@ describe('FavoritesBooksLibraryComponent', () => {
     component: FavoritesBooksLibraryComponent,
     declarations: [],
     imports: [],
-    providers: [
-      mockProvider(AuthenticationService),
-      mockProvider(FavoritesBooksService),
-    ]
+    providers: [mockProvider(AuthenticationService), mockProvider(FavoritesBooksService)]
   });
 
   beforeEach(() => {
-    spectator = createComponent<FavoritesBooksLibraryComponent>(`<app-favorites-books-library></app-favorites-books-library>`);
+    spectator = createComponent<FavoritesBooksLibraryComponent>(
+      `<app-favorites-books-library></app-favorites-books-library>`
+    );
   });
 
   it('should create', () => {

@@ -1,15 +1,18 @@
 <h1 mat-dialog-title align="center">User Details</h1>
 <div mat-dialog-content>
-    <img src="../../../../../assets/icon/images/user.svg" alt="">
-    <p>Name: <span>Przemo Mistrz Cichon</span> </p>
-    <mat-divider>
-    </mat-divider>
-    <p>Email: <span>{{user.email}}</span></p>
-    <mat-divider>
-    </mat-divider>
-    <p>Subscription:
-         <span *ngIf="subscriptionType === 'none'">none</span>
+  <img src="../../../../../assets/icon/images/user.svg" alt="" />
+  <p>Name: <span>Przemo Mistrz Cichon</span></p>
+  <mat-divider> </mat-divider>
+  <p>
+    Email: <span>{{ user.email }}</span>
+  </p>
+  <mat-divider> </mat-divider>
+  <p>
+    Subscription:
+    <span *ngIf="subscriptionType === 'none'">none</span>
+  </p>
 </div>
+
 <div mat-dialog-actions align="end">
-    <button mat-button mat-flat-button color="accent" mat-dialog-close>Ok</button>
+  <button mat-button mat-flat-button color="accent" mat-dialog-close>Ok</button>
 </div>

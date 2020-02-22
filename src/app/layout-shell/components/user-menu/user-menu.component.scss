@@ -1,15 +1,15 @@
 .wrapper {
-    display: flex;
+  display: flex;
 }
 
 @media (max-width: 965px) {
-    .wrapper {
-      display: none;
-    }
+  .wrapper {
+    display: none;
   }
+}
 
-  .wrapper-btn {
-    button {
-      margin-right: 0.5em;
-    }
+.wrapper-btn {
+  button {
+    margin-right: 0.5em;
   }
+}

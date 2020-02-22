@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthenticationService } from 'src/app/user-access/services/authentication.service';
-import { User } from 'src/app/user-access/models/user.model';
 import { ToastrService } from 'ngx-toastr';
+import { AuthenticationService } from 'src/app/user-access/services/authentication.service';
 
 @Component({
   selector: 'app-dialog-logout',
@@ -12,10 +11,13 @@ import { ToastrService } from 'ngx-toastr';
 export class DialogLogoutComponent implements OnInit {
   public token: string;
 
-  constructor(private router: Router, private authenticationService: AuthenticationService,
-  private toastr: ToastrService) {}
+  constructor(
+    private router: Router,
+    private authenticationService: AuthenticationService,
+    private toastr: ToastrService
+  ) {}
 
-  ngOnInit() {}
+  public ngOnInit(): void {}
 
   public logout(): void {
     this.authenticationService.logout();

@@ -17,7 +17,6 @@ export class SignInComponent implements OnInit {
   public returnUrl: string;
   public showPwd = false;
   public errors: any;
-  
 
   constructor(
     private formBuilder: FormBuilder,
@@ -56,8 +55,7 @@ export class SignInComponent implements OnInit {
   }
 
   // easy acces to form fields
-  get f() {
-    console.log(this.loginForm.controls);
+  get f(): any {
     return this.loginForm.controls;
   }
 
@@ -67,8 +65,7 @@ export class SignInComponent implements OnInit {
 
   public onSubmit(): void {
     if (this.loginForm.valid) {
-      this.authenticationService.login(this.loginForm.value).
-      subscribe(
+      this.authenticationService.login(this.loginForm.value).subscribe(
         response => {
           this.router.navigate(['/books']);
         },

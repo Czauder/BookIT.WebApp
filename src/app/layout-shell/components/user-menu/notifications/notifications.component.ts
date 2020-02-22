@@ -10,10 +10,9 @@ export class NotificationsComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
+  public ngOnInit(): void {}
 
   public showInput(): void {
     this.isShow = !this.isShow;
-    console.log(this.isShow);
   }
 }

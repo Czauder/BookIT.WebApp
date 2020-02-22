@@ -23,7 +23,6 @@ export class AuthenticationService {
   }
 
   public registerCustomer(registerForm: any): Observable<any> {
-    console.log(registerForm);
     return this.http.post<any>(`${environment.baseURL}/api/auth/signup`, registerForm).pipe(
       map(user => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
@@ -33,6 +32,7 @@ export class AuthenticationService {
     );
   }
 
+  // tslint:disable-next-line: typedef
   public login(loginForm: any) {
     return this.http.post<LoginResult>(`${environment.baseURL}/api/auth/signin`, loginForm).pipe(
       tap(user => {
@@ -47,9 +47,9 @@ export class AuthenticationService {
     this.currentUserSubject.next(null);
   }
 
-  public setToken(token) {
+  public setToken(token: any): any {
     localStorage.setItem('currentUser', token);
-    let usr = this.jwtDecoderService.getDecodedAccessToken(token);
+    const usr = this.jwtDecoderService.getDecodedAccessToken(token);
     this.currentUserSubject.next(usr);
   }
 }

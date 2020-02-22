@@ -1,13 +1,11 @@
 <div class="wrapper">
   <div class="input-container">
-    <input
-    placeholder="Find your book..."
-    *ngIf="isShow" type="text">
+    <input placeholder="Find your book..." *ngIf="isShow" type="text" />
   </div>
-    <button mat-icon-button>
-        <mat-icon (click)="showInput()">search</mat-icon>
-      </button>
-      <button mat-icon-button>
-        <mat-icon>notifications</mat-icon>
-      </button>
+  <button mat-icon-button>
+    <mat-icon (click)="showInput()">search</mat-icon>
+  </button>
+  <button mat-icon-button>
+    <mat-icon>notifications</mat-icon>
+  </button>
 </div>

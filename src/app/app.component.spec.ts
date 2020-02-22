@@ -1,6 +1,7 @@
-import { createHostFactory, SpectatorHost, mockProvider } from '@ngneat/spectator';
-import { AppComponent } from './app.component';
+import { createHostFactory, mockProvider, SpectatorHost } from '@ngneat/spectator';
 import { ToastrService } from 'ngx-toastr';
+
+import { AppComponent } from './app.component';
 import { AuthenticationService } from './user-access/services/authentication.service';
 
 describe('AppComponent', () => {
