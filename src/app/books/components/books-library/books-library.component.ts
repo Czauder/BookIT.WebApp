@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { ApplicationState, selectBooks } from 'src/app/store/state';
 
 import { Book } from '../../models/book.model';
-import { BooksBackendService } from '../../services/books-backend.service';
 
 @Component({
   selector: 'app-books-library',
@@ -9,12 +10,12 @@ import { BooksBackendService } from '../../services/books-backend.service';
   styleUrls: ['./books-library.component.scss']
 })
 export class BooksLibraryComponent implements OnInit {
-  public books: Book[];
+  public books: Book[] = [];
 
-  constructor(private booksBackendService: BooksBackendService) {}
+  constructor(private store: Store<ApplicationState>) {}
 
   public ngOnInit(): void {
-    this.booksBackendService.getBooks().subscribe(books => {
+    this.store.select(selectBooks).subscribe(books => {
       this.books = books;
     });
   }

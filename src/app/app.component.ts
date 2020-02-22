@@ -4,6 +4,9 @@ import { fromEvent } from 'rxjs';
 
 import { User } from './user-access/models/user.model';
 import { AuthenticationService } from './user-access/services/authentication.service';
+import { Store } from '@ngrx/store';
+import { ApplicationState } from './store/state';
+import { getBooks } from './store/action';
 
 @Component({
   selector: 'app-root',
@@ -15,8 +18,9 @@ export class AppComponent implements OnInit {
   public offline$ = fromEvent(window, 'offline');
   public online$ = fromEvent(window, 'online');
 
-  public constructor(private toastr: ToastrService, private authenticationService: AuthenticationService) {}
+  public constructor(private toastr: ToastrService, private authenticationService: AuthenticationService,   private store: Store<ApplicationState>) {}
   public ngOnInit(): void {
+    this.store.dispatch(getBooks());
     this.offline$.subscribe(_ =>
       this.toastr.error(`We are offline! \uD83D\uDE22 \uD83D\uDE22`, '', {
         progressBar: true,
