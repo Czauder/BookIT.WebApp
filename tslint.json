@@ -1,5 +1,8 @@
 {
-  "extends": ["tslint-eslint-rules"],
+  "extends": [
+    "tslint:latest",
+    "tslint-config-prettier"
+  ],
   "rulesDirectory": [
     "node_modules/codelyzer",
     "node_modules/tslint-origin-ordered-imports-rule/dist",
