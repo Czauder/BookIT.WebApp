@@ -18,3 +18,13 @@ export const selectApplicationState = createFeatureSelector<ApplicationState>('b
 export const selectBooks = createSelector(selectApplicationState, state => state.Books);
 
 export const isLoading = createSelector(selectApplicationState, state => state.isLoading);
+
+export const selectBookId = createSelector(selectBooks, (books, props) => {
+  if (books) {
+    return books.find(book => {
+      return book.id === props.id;
+    });
+  } else {
+    return null;
+  }
+});

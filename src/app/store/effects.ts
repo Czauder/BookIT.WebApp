@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { getBooks, getBooksSuccess, getBooksFail, getBook, getBookSuccess, getBookFail } from './action';
-import { switchMap, catchError, map } from 'rxjs/operators';
-import { BooksBackendService } from '../books/services/books-backend.service';
 import { of } from 'rxjs';
+import { catchError, map, switchMap } from 'rxjs/operators';
+
+import { BooksBackendService } from '../books/services/books-backend.service';
+import { getBooks, getBooksFail, getBooksSuccess } from './action';
 
 @Injectable()
 export class BooksEffects {
@@ -20,21 +21,6 @@ export class BooksEffects {
       })
     );
   });
-
-
-    // public getBook$ = createEffect(() => {
-    //     return this.actions$.pipe(
-    //         ofType(getBook),
-    //         switchMap(action => {
-    //             return this.bookBackendService.getBook(id).pipe(
-    //                 map(
-    //                     res => getBookSuccess({book: res}),
-    //                     catchError(err => of(getBookFail))
-    //                 )
-    //             )
-    //         })
-    //     )
-    // })
 
   constructor(private actions$: Actions, private bookBackendService: BooksBackendService) {}
 }

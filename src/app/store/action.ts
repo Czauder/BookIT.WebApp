@@ -1,4 +1,5 @@
 import { createAction, props } from '@ngrx/store';
+
 import { Book } from '../books/models/book.model';
 
 export const getBooks = createAction('[ALL BOOKS] Get Books from external server');
@@ -8,9 +9,3 @@ export const getBooksSuccess = createAction(
 );
 export const getBooksFail = createAction('[ALL BOOKS] Get Books from external server Fail');
 
-export const getBook = createAction('[SINGLE BOOK] Get Book from external server');
-export const getBookSuccess = createAction(
-  '[SINGLE BOOK] Get Book from external server Success',
-  props<{ book: Book }>()
-);
-export const getBookFail = createAction('[SINGLE BOOK] Get Book from external server Fail');

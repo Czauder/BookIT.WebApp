@@ -6,6 +6,9 @@ import { SubscriptionsService } from 'src/app/pricing/services/subscriptions.ser
 import { AuthenticationService } from 'src/app/user-access/services/authentication.service';
 
 import { BooksBackendService } from '../../services/books-backend.service';
+import { ApplicationState, selectBookId } from 'src/app/store/state';
+import { Store } from '@ngrx/store';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-book-details',
@@ -23,26 +26,39 @@ export class BookDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private authenticationsService: AuthenticationService,
     private favoritesBooksService: FavoritesBooksService,
-    private subscriptionsService: SubscriptionsService
+    private subscriptionsService: SubscriptionsService,
+    private store: Store<ApplicationState>
   ) {}
 
+  // this.bookBackendService.getBook(params.get('id')).subscribe(book => {
+  //   this.book = book;
+
   public ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      this.bookBackendService.getBook(params.get('id')).subscribe(book => {
+    // this.route.paramMap.subscribe(params => {
+    //  this.store.select(selectBookId, {id: params.get('id')}).subscribe(book => {
+    //     this.book = book;
+    //   });
+
+    //   this.favoritesBooksService
+    //     .getFavoritesBooks(this.authenticationsService.currentUserValue().customerId)
+    //     .subscribe(fav => {
+    //       const exists = fav.some(e => e.id === this.book.id);
+    //       if (fav && exists) {
+    //         this.isFavorite = true;
+    //       } else {
+    //         this.isFavorite = false;
+    //       }
+    //     });
+    // });
+    this.route.paramMap
+      .pipe(
+        switchMap(params => {
+          return this.store.select(selectBookId, { id: params.get('id') });
+        })
+      )
+      .subscribe(book => {
         this.book = book;
       });
-
-      this.favoritesBooksService
-        .getFavoritesBooks(this.authenticationsService.currentUserValue().customerId)
-        .subscribe(fav => {
-          const exists = fav.some(e => e.id === this.book.id);
-          if (fav && exists) {
-            this.isFavorite = true;
-          } else {
-            this.isFavorite = false;
-          }
-        });
-    });
 
     this.checkSubscriber();
   }
@@ -82,6 +98,7 @@ export class BookDetailsComponent implements OnInit {
   }
 
   public checkSubscriber(): void {
+    if(this.authenticationsService.currentUserValue())
     if (this.authenticationsService.currentUserValue().role === 'Subscriber') {
       this.isSubscriber = true;
     } else {
