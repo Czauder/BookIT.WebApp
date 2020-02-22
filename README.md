@@ -4,8 +4,12 @@
   </a>
   <h3 align="center">Book IT</h3>
 <p align="center">
-    Angular 9 + Angular CLI App for learning pupruse :heart:
+    It's a frontend part of BookIT app :heart:
 </p>
+<p align="center">
+    Angular 9 + CLI Angular
+</p>
+
 
 ## What's included
 
