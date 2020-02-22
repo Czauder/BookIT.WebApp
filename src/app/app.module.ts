@@ -2,9 +2,12 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ToastrModule } from 'ngx-toastr';
 
+import { environment } from '../environments/environment';
 import { AboutComponent } from './about/about.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,14 +17,10 @@ import { DialogLogoutComponent } from './layout-shell/components/user-menu/dialo
 import { LayoutShellModule } from './layout-shell/layout-shell.module';
 import { MaterialModule } from './material/material.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { BooksEffects } from './store/effects';
+import { booksReducer } from './store/reducer';
 import { ErrorInterceptor } from './user-access/services/helpers/error.interceptor';
 import { JwtInterceptor } from './user-access/services/helpers/jwt.interceptor';
-import { booksReducer } from './store/reducer';
-import { EffectsModule } from '@ngrx/effects';
-import { AppEffects } from './app.effects';
-import { BooksEffects } from './store/effects';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [

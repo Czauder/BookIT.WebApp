@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { ToastrService } from 'ngx-toastr';
 import { fromEvent } from 'rxjs';
 
+import { getBooks } from './store/action';
+import { ApplicationState } from './store/state';
 import { User } from './user-access/models/user.model';
 import { AuthenticationService } from './user-access/services/authentication.service';
-import { Store } from '@ngrx/store';
-import { ApplicationState } from './store/state';
-import { getBooks } from './store/action';
 
 @Component({
   selector: 'app-root',

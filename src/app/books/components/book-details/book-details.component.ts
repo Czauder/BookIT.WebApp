@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { ToastrService } from 'ngx-toastr';
+import { switchMap } from 'rxjs/operators';
 import { FavoritesBooksService } from 'src/app/favorites-books/services/favorites-books.service';
 import { SubscriptionsService } from 'src/app/pricing/services/subscriptions.service';
+import { ApplicationState, selectBookId } from 'src/app/store/state';
 import { AuthenticationService } from 'src/app/user-access/services/authentication.service';
 
 import { BooksBackendService } from '../../services/books-backend.service';
-import { ApplicationState, selectBookId } from 'src/app/store/state';
-import { Store } from '@ngrx/store';
-import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-book-details',
