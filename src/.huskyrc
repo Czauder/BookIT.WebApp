@@ -1,6 +1,6 @@
 {
   "hooks": {
-    "pre-commit": "run-s format:fix-staged",
+    "pre-commit": "npm test format:fix-staged",
     "pre-push": "run-s lint format:check"
   }
 }

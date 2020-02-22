@@ -14,12 +14,6 @@
     "format:fix": "prettier node_modules/.bin/prettier --config .prettierrc \"src/**/*.{html,ts,css,scss,json,less,js}\" -l --write",
     "format:check": "prettier node_modules/.bin/prettier --config .prettierrc \"src/**/*.{html,ts,css,scss,json,less,js}\" -l"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "run-s format:fix-staged",
-      "pre-push": "run-s lint format:check"
-    }
-  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^9.0.1",
