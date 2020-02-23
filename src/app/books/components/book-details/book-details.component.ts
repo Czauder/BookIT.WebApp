@@ -32,7 +32,6 @@ export class BookDetailsComponent implements OnInit {
     private store: Store<ApplicationState>
   ) {}
 
-
   public ngOnInit(): void {
     this.route.paramMap
       .pipe(
@@ -42,18 +41,20 @@ export class BookDetailsComponent implements OnInit {
       )
       .subscribe(book => {
         this.book = book;
-        this.store.select(selectIsFavorites, { book: this.book }).subscribe(isFavorite => (this.isFavorite = isFavorite));
-
+        this.store
+          .select(selectIsFavorites, { book: this.book })
+          .subscribe(isFavorite => (this.isFavorite = isFavorite));
       });
 
     this.checkSubscriber();
-
   }
 
   public handleFavorite(): void {
     if (this.isFavorite) {
+      this.showToaster();
       this.store.dispatch(deleteFavoritesBook({ book: this.book }));
     } else {
+      this.showToaster();
       this.store.dispatch(addFavoriteBook({ book: this.book }));
     }
   }
@@ -65,7 +66,7 @@ export class BookDetailsComponent implements OnInit {
   }
 
   public showToaster(): void {
-    if (this.isFavorite) {
+    if (!this.isFavorite) {
       this.toastr.success('Added to your favorites books! \uD83D\uDE0D', '', {
         progressBar: true,
         positionClass: 'toast-bottom-full-width'
