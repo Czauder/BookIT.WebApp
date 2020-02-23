@@ -11,11 +11,12 @@ import { JwtDecoderService } from './jwt-decoder.service';
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<User>;
-  public currentUser: Observable<string>;
+  public currentUser: Observable<User>;
   public myUser: User;
 
   constructor(private http: HttpClient, private jwtDecoderService: JwtDecoderService) {
     this.currentUserSubject = new BehaviorSubject<User>(null);
+    this.currentUser = this.currentUserSubject.asObservable()
   }
 
   public currentUserValue(): User {

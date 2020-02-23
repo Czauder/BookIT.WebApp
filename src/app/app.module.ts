@@ -21,6 +21,7 @@ import { BooksEffects } from './store/effects';
 import { booksReducer } from './store/reducer';
 import { ErrorInterceptor } from './user-access/services/helpers/error.interceptor';
 import { JwtInterceptor } from './user-access/services/helpers/jwt.interceptor';
+import { booksStateKey } from './store/state';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { JwtInterceptor } from './user-access/services/helpers/jwt.interceptor';
     BrowserAnimationsModule,
     LayoutShellModule,
     HttpClientModule,
-    StoreModule.forRoot({ books: booksReducer }),
+    StoreModule.forRoot({ [booksStateKey]: booksReducer }),
     EffectsModule.forRoot([BooksEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states

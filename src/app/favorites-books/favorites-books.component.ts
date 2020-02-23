@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 
 import { Book } from '../books/models/book.model';
-import { AuthenticationService } from '../user-access/services/authentication.service';
-import { FavoritesBooksService } from './services/favorites-books.service';
+import { ApplicationState, selectFavoritesBooks } from '../store/state';
 
 @Component({
   selector: 'app-favorites-books',
@@ -13,23 +13,10 @@ export class FavoritesBooksComponent implements OnInit {
   public isAddedBook: Book[] = [];
 
   constructor(
-    private favoritesBooksService: FavoritesBooksService,
-    private authenticationService: AuthenticationService
+    private store: Store<ApplicationState>
   ) {}
 
   public ngOnInit(): void {
-    this.favoritesBooksService
-      .getFavoritesBooks(this.authenticationService.currentUserValue().customerId)
-      .subscribe(favoritesBooks => {
-        this.isAddedBook = favoritesBooks;
-      });
+   this.store.select(selectFavoritesBooks).subscribe(favoritesBooks => this.isAddedBook = favoritesBooks);
   }
-
-  // public setContent() {
-  //   if(this.isAddedBook.length) {
-  //     return {
-  //       showContent:
-  //     }
-  //   }
-  // }
 }
