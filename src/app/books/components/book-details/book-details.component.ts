@@ -29,7 +29,7 @@ export class BookDetailsComponent implements OnInit {
     private subscriptionsService: SubscriptionsService,
     private store: Store<ApplicationState>
   ) {}
-
+h
   // this.bookBackendService.getBook(params.get('id')).subscribe(book => {
   //   this.book = book;
 
