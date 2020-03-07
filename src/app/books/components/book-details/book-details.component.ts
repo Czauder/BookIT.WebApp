@@ -5,12 +5,13 @@ import { ToastrService } from 'ngx-toastr';
 import { switchMap } from 'rxjs/operators';
 import { FavoritesBooksService } from 'src/app/favorites-books/services/favorites-books.service';
 import { SubscriptionsService } from 'src/app/pricing/services/subscriptions.service';
-import { ApplicationState, selectBookId, selectIsFavorites } from 'src/app/store/state';
 import { AuthenticationService } from 'src/app/user-access/services/authentication.service';
 
 import { BooksBackendService } from '../../services/books-backend.service';
 import { Book } from '../../models/book.model';
 import { addFavoriteBook, deleteFavoritesBook } from 'src/app/store/action';
+import { BooksState } from 'src/app/store/reducer';
+import { selectBookId, selectIsFavorites } from 'src/app/store/selectors/books.selectors';
 
 @Component({
   selector: 'app-book-details',
@@ -29,7 +30,7 @@ export class BookDetailsComponent implements OnInit {
     private authenticationsService: AuthenticationService,
     private favoritesBooksService: FavoritesBooksService,
     private subscriptionsService: SubscriptionsService,
-    private store: Store<ApplicationState>
+    private store: Store<BooksState>
   ) {}
 
   public ngOnInit(): void {

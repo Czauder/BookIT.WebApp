@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { Book } from '../books/models/book.model';
-import { ApplicationState, selectFavoritesBooks } from '../store/state';
+import { selectFavoritesBooks } from '../store/selectors/books.selectors';
+import { BooksState } from '../store/reducer';
+
 
 @Component({
   selector: 'app-favorites-books',
@@ -13,7 +15,7 @@ export class FavoritesBooksComponent implements OnInit {
   public isAddedBook: Book[] = [];
 
   constructor(
-    private store: Store<ApplicationState>
+    private store: Store<BooksState>
   ) {}
 
   public ngOnInit(): void {

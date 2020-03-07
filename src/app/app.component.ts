@@ -4,7 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { fromEvent } from 'rxjs';
 
 import { getBooks, getFavoritesBooks } from './store/action';
-import { ApplicationState } from './store/state';
+import { BooksState } from './store/store';
 import { User } from './user-access/models/user.model';
 import { AuthenticationService } from './user-access/services/authentication.service';
 import { filter } from 'rxjs/operators';
@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
   public constructor(
     private toastr: ToastrService,
     private authenticationService: AuthenticationService,
-    private store: Store<ApplicationState>
+    private store: Store<BooksState>
   ) {}
   public ngOnInit(): void {
     this.store.dispatch(getBooks());

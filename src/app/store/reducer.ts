@@ -1,5 +1,4 @@
 import { createReducer, on } from '@ngrx/store';
-import { initialState } from './state';
 import {
   getBooks,
   getBooksSuccess,
@@ -14,7 +13,24 @@ import {
   deleteFavoritesBookSuccess,
   deleteFavoritesBookFail
 } from './action';
+import { Book } from '../books/models/book.model';
+import { User } from '../user-access/models/user.model';
 
+export const booksStateKey = 'bookState';
+
+export interface BooksState {
+  Books: Book[];
+  FavoritesBooks: Book[];
+  isLoading: boolean;
+  User: User[];
+}
+
+export const initialState: BooksState = {
+  Books: [],
+  FavoritesBooks: [],
+  isLoading: false,
+  User: []
+};
 
 export const booksReducer = createReducer(
   initialState,
@@ -22,8 +38,7 @@ export const booksReducer = createReducer(
   on(getBooksSuccess, (state, action) => ({
     ...state,
     Books: [...action.books],
-    isLoading: false,
-    
+    isLoading: false
   })),
   on(getBooksFail, state => ({ ...state, isLoading: false })),
   on(getFavoritesBooks, state => ({ ...state, isLoading: true })),
@@ -43,7 +58,7 @@ export const booksReducer = createReducer(
   on(deleteFavoritesBook, state => ({ ...state, isLoading: true })),
   on(deleteFavoritesBookSuccess, (state, action) => ({
     ...state,
-    FavoritesBooks: state.FavoritesBooks.filter(book => action.book.id != book.id ),
+    FavoritesBooks: state.FavoritesBooks.filter(book => action.book.id != book.id),
     isLoading: false
   })),
   on(deleteFavoritesBookFail, state => ({ ...state, isLoading: false }))
