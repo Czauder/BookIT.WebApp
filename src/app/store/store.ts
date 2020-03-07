@@ -9,7 +9,7 @@ export const appKey = 'AppState';
 
 export interface AppState {
   [routerKey]: any;
-  [booksStateKey]: BooksState
+  [booksStateKey]: BooksState;
 }
 
 const reducers: ActionReducerMap<AppState> = {
@@ -17,5 +17,4 @@ const reducers: ActionReducerMap<AppState> = {
   [booksStateKey]: booksReducer
 };
 
-
-export const applicationReducer = combineReducers(reducers)
+export const applicationReducer = combineReducers(reducers);

@@ -3,9 +3,7 @@ import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { appKey, AppState } from '../store';
 import { selectFeature } from '.';
 
-
-
-export const selectBookState = createSelector(selectFeature, state=>state.bookState)
+export const selectBookState = createSelector(selectFeature, state => state.bookState);
 export const selectBooks = createSelector(selectBookState, state => state.Books);
 
 export const isLoading = createSelector(selectBookState, state => state.isLoading);
@@ -25,7 +23,6 @@ export const selectFavoritesBooks = createSelector(selectBookState, state => sta
 export const selectIsFavorites = createSelector(selectFavoritesBooks, (books, props) => {
   return books.some(book => book.id === props.book.id);
 });
-
 
 // const State = {
 //     AppState:{

@@ -16,7 +16,7 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient, private jwtDecoderService: JwtDecoderService) {
     this.currentUserSubject = new BehaviorSubject<User>(null);
-    this.currentUser = this.currentUserSubject.asObservable()
+    this.currentUser = this.currentUserSubject.asObservable();
   }
 
   public currentUserValue(): User {

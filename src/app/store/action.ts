@@ -10,7 +10,6 @@ export const getBooksSuccess = createAction(
 );
 export const getBooksFail = createAction('[ALL BOOKS] Get Books from external server Fail');
 
-
 // favorites books
 export const getFavoritesBooks = createAction('[FAVORITES BOOKS] Get Favorites Books');
 export const getFavoritesBooksSuccess = createAction(
@@ -24,12 +23,6 @@ export const addFavoriteBook = createAction('[FAVORITE BOOK] Add Book', props<{ 
 export const addFavoriteBookSuccess = createAction('[FAVORITE BOOK] Add Book Success', props<{ book: Book }>());
 export const addFavoriteBookFail = createAction('[FAVORITE BOOK] Add Book Fail');
 
-export const deleteFavoritesBook = createAction('[FAVORITE BOOK] Delete Books', props<{book: Book}>());
-export const deleteFavoritesBookSuccess = createAction(
-  '[FAVORITE BOOK] delete Books Success',
-  props<{ book: Book }>()
-);
+export const deleteFavoritesBook = createAction('[FAVORITE BOOK] Delete Books', props<{ book: Book }>());
+export const deleteFavoritesBookSuccess = createAction('[FAVORITE BOOK] delete Books Success', props<{ book: Book }>());
 export const deleteFavoritesBookFail = createAction('[FAVORITE BOOK] Delete Book fail');
-
-
-

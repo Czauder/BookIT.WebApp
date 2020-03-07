@@ -5,7 +5,6 @@ import { Book } from '../books/models/book.model';
 import { selectFavoritesBooks } from '../store/selectors/books.selectors';
 import { BooksState } from '../store/reducer';
 
-
 @Component({
   selector: 'app-favorites-books',
   templateUrl: './favorites-books.component.html',
@@ -14,11 +13,9 @@ import { BooksState } from '../store/reducer';
 export class FavoritesBooksComponent implements OnInit {
   public isAddedBook: Book[] = [];
 
-  constructor(
-    private store: Store<BooksState>
-  ) {}
+  constructor(private store: Store<BooksState>) {}
 
   public ngOnInit(): void {
-   this.store.select(selectFavoritesBooks).subscribe(favoritesBooks => this.isAddedBook = favoritesBooks);
+    this.store.select(selectFavoritesBooks).subscribe(favoritesBooks => (this.isAddedBook = favoritesBooks));
   }
 }

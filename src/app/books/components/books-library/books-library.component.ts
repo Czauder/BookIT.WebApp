@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-
 import { Book } from '../../models/book.model';
 import { BooksState } from 'src/app/store/reducer';
 import { selectBooks } from 'src/app/store/selectors/books.selectors';

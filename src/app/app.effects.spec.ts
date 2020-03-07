@@ -10,10 +10,7 @@ describe('AppEffects', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [
-        AppEffects,
-        provideMockActions(() => actions$)
-      ]
+      providers: [AppEffects, provideMockActions(() => actions$)]
     });
 
     effects = TestBed.get<AppEffects>(AppEffects);
