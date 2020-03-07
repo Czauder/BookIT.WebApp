@@ -4,10 +4,11 @@ import { ToastrService } from 'ngx-toastr';
 import { fromEvent } from 'rxjs';
 
 import { getBooks, getFavoritesBooks } from './store/action';
-import { BooksState } from './store/store';
+
 import { User } from './user-access/models/user.model';
 import { AuthenticationService } from './user-access/services/authentication.service';
 import { filter } from 'rxjs/operators';
+import { BooksState } from './store/reducer';
 
 @Component({
   selector: 'app-root',
