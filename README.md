@@ -11,7 +11,7 @@
 </p>
 
 
-## What's included
+## What's included 📃📃🤯
 
 - [x] Lazy loading modules
 - [x] Angular Security - Authentication With JSON Web Tokens (JWT)
@@ -21,8 +21,9 @@
 - [x] Angular Pipes
 - [x] ES6 Promises and Observables
 - [x] Unit tests with Jasmine and Karma (Spectator). 
-- [x] Ngrx state management for Angular applications
-- [x] Ngrx router-store
+- [x] NgRx state management for Angular applications
+- [x] NgRx router-store'
+- [x] NgRx entity
 - [x] EsLint, Prettier, Husky
 
 
