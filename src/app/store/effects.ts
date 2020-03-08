@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { of } from 'rxjs';
+import { of, fromEvent } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
 
 import { BooksBackendService } from '../books/services/books-backend.service';
@@ -20,7 +20,6 @@ import {
 } from './action';
 import { FavoritesBooksService } from '../favorites-books/services/favorites-books.service';
 import { AuthenticationService } from '../user-access/services/authentication.service';
-import { Book } from '../books/models/book.model';
 
 @Injectable()
 export class BooksEffects {
@@ -57,8 +56,8 @@ export class BooksEffects {
         return this.favoritesBooksService
           .postFavoritesBooks(this.authenticationService.currentUserValue().customerId, action.book.id)
           .pipe(
-            map(res => addFavoriteBookSuccess({ book: action.book })),
-            catchError(err => of(addFavoriteBookFail()))
+            map(res => addFavoriteBookSuccess()),
+            catchError(err => of(addFavoriteBookFail({ book: action.book })))
           );
       })
     );
@@ -71,8 +70,8 @@ export class BooksEffects {
         return this.favoritesBooksService
           .deleteFavoritesBooks(this.authenticationService.currentUserValue().customerId, action.book.id)
           .pipe(
-            map(res => deleteFavoritesBookSuccess({ book: action.book })),
-            catchError(err => of(deleteFavoritesBookFail()))
+            map(res => deleteFavoritesBookSuccess()),
+            catchError(err => of(deleteFavoritesBookFail({ book: action.book })))
           );
       })
     );

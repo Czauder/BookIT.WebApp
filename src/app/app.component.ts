@@ -8,7 +8,7 @@ import { getBooks, getFavoritesBooks } from './store/action';
 import { User } from './user-access/models/user.model';
 import { AuthenticationService } from './user-access/services/authentication.service';
 import { filter } from 'rxjs/operators';
-import { BooksState } from './store/reducer';
+import { BooksState } from './store/reducers/book-reducer';
 
 @Component({
   selector: 'app-root',

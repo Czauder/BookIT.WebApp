@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { Book } from '../../models/book.model';
-import { BooksState } from 'src/app/store/reducer';
-import { selectBooks } from 'src/app/store/selectors/books.selectors';
+
+import { selectAllBooks } from 'src/app/store/selectors/books.selectors';
+import { BooksState } from 'src/app/store/reducers/book-reducer';
 
 @Component({
   selector: 'app-books-library',
@@ -16,7 +17,7 @@ export class BooksLibraryComponent implements OnInit {
   constructor(private store: Store<BooksState>) {}
 
   public ngOnInit(): void {
-    this.store.select(selectBooks).subscribe(books => {
+    this.store.select(selectAllBooks).subscribe(books => {
       this.books = books;
     });
   }

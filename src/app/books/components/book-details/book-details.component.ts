@@ -10,8 +10,11 @@ import { AuthenticationService } from 'src/app/user-access/services/authenticati
 import { BooksBackendService } from '../../services/books-backend.service';
 import { Book } from '../../models/book.model';
 import { addFavoriteBook, deleteFavoritesBook } from 'src/app/store/action';
-import { BooksState } from 'src/app/store/reducer';
-import { selectBookId, selectIsFavorites } from 'src/app/store/selectors/books.selectors';
+import { BooksState } from 'src/app/store/reducers/book-reducer';
+import { FavoriteBooksState } from 'src/app/store/reducers/favorite-book.reducer';
+import { selectBookId } from 'src/app/store/selectors/books.selectors';
+import { selectIsFavorites } from 'src/app/store/selectors/favorite-books.selector';
+
 
 @Component({
   selector: 'app-book-details',
@@ -30,7 +33,7 @@ export class BookDetailsComponent implements OnInit {
     private authenticationsService: AuthenticationService,
     private favoritesBooksService: FavoritesBooksService,
     private subscriptionsService: SubscriptionsService,
-    private store: Store<BooksState>
+    private store: Store<FavoriteBooksState>
   ) {}
 
   public ngOnInit(): void {
