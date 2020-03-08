@@ -11,7 +11,7 @@ import {
   deleteFavoritesBookSuccess,
   getFavoritesBooks,
   getFavoritesBooksFail,
-  getFavoritesBooksSuccess
+  getFavoritesBooksSuccess,
 } from '../action';
 
 export const favoriteBooksStateKey = 'favoriteBooksState';
@@ -41,7 +41,7 @@ const reducer = createReducer(
 
   on(getFavoritesBooksFail, state => ({ ...state, isLoading: false })),
 
-  on(addFavoriteBook, (state, {book}) => {
+  on(addFavoriteBook, (state, { book }) => {
     return adapter.addOne(book, {
       ...state,
       isLoading: true

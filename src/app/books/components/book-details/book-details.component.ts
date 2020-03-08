@@ -5,16 +5,14 @@ import { ToastrService } from 'ngx-toastr';
 import { switchMap } from 'rxjs/operators';
 import { FavoritesBooksService } from 'src/app/favorites-books/services/favorites-books.service';
 import { SubscriptionsService } from 'src/app/pricing/services/subscriptions.service';
-import { AuthenticationService } from 'src/app/user-access/services/authentication.service';
-
-import { BooksBackendService } from '../../services/books-backend.service';
-import { Book } from '../../models/book.model';
 import { addFavoriteBook, deleteFavoritesBook } from 'src/app/store/action';
-import { BooksState } from 'src/app/store/reducers/book-reducer';
 import { FavoriteBooksState } from 'src/app/store/reducers/favorite-book.reducer';
 import { selectBookId } from 'src/app/store/selectors/books.selectors';
 import { selectIsFavorites } from 'src/app/store/selectors/favorite-books.selector';
+import { AuthenticationService } from 'src/app/user-access/services/authentication.service';
 
+import { Book } from '../../models/book.model';
+import { BooksBackendService } from '../../services/books-backend.service';
 
 @Component({
   selector: 'app-book-details',

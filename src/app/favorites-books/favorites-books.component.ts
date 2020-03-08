@@ -5,7 +5,6 @@ import { Book } from '../books/models/book.model';
 import { FavoriteBooksState } from '../store/reducers/favorite-book.reducer';
 import { selectFavoritesBooks } from '../store/selectors/favorite-books.selector';
 
-
 @Component({
   selector: 'app-favorites-books',
   templateUrl: './favorites-books.component.html',
