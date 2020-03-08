@@ -22,7 +22,7 @@
 - [x] ES6 Promises and Observables
 - [x] Unit tests with Jasmine and Karma (Spectator). 
 - [x] NgRx state management for Angular applications
-- [x] NgRx router-store'
+- [x] NgRx router-store
 - [x] NgRx entity
 - [x] EsLint, Prettier, Husky
 
